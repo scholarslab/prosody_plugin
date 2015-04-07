@@ -38,16 +38,25 @@ function prosody_xml_transform ($post)
 
     $tei = $post->post_content;
 
-    // Add check to see if there is post meta on field, if so update post meta, otherwise add post meta
+    $xml_doc = new DOMDocument();
+    $xml_doc->loadXML( $tei );
 
-    add_post_meta( $post, 'key', $tei );
+    $xsl_doc = new DOMDocument();
+    $xsl_doc->load( plugins_url( 'prosody.xsl', __FILE__ ) );
 
-    $original = get_post_meta( $post, 'key' );
-    echo $original;
+    $proc = new XSLTProcessor();
+    $proc->importStylesheet( $xsl_doc );
+    $newdom = $proc->transformToDoc( $xml_doc );
+
+    print $newdom->saveXML();
+
+    // $post->post_content = $newdom->saveXML();
 
 
     // $post_url = post_permalink( $post );
     // wp_redirect( $post_url ); exit;
+
+    // Consider adding initial xml into post meta field, then transforming and filling in post content
 
 }
 

@@ -29,45 +29,51 @@ function prosody_create_post_type ()
     );
 }
 
+// Current issue - post meta is only saved on save_post action, which means that $tei is being to set to an empty string until a second save action
+
 // Will using the save action actually be a problem due to autosaving in WP?
-add_action( 'save_post_prosody_poem', 'prosody_xml_transform');
+add_action( 'publish_post_prosody_poem', 'prosody_xml_transform');
 
 function prosody_xml_transform ($post)
 {
     global $post;
 
-    $tei = get_post_meta( $post->ID, 'Original Document', true );
-
-    $xml_doc = new DOMDocument();
-    $xml_doc->loadXML( $tei );
-
-    $xsl_doc = new DOMDocument();
-    $xsl_doc->load( plugins_url( 'prosody.xsl', __FILE__ ) );
-
-    $proc = new XSLTProcessor();
-    $proc->importStylesheet( $xsl_doc );
-    $newdom = $proc->transformToDoc( $xml_doc );
-    // $newhtml = $newdom->saveHTML();
-
-    $my_post = array(
-        'ID' => $post->ID,
-        'post_content' => $newdom->saveXML(),
-    );
-
-    wp_update_post( $my_post, true );
+    if ( $post ) {
 
 
-    // print $newdom->saveXML();
-    // print $tei;
+        $tei = get_post_meta( $post->ID, 'Original Document', true );
+        // $tei = $_POST['prosody_source_poem']; //this returns a string
+        // echo gettype($tei);
+        // var_dump($tei);
 
-    // $post->post_content = $newdom->saveXML();
+        $xml_doc = new DOMDocument();
+        $xml_doc->loadXML( $tei );
 
+        $xsl_doc = new DOMDocument();
+        $xsl_doc->load( plugins_url( 'prosody.xsl', __FILE__ ) );
 
-    // $post_url = post_permalink( $post );
-    // wp_redirect( $post_url ); exit;
+        $proc = new XSLTProcessor();
+        $proc->importStylesheet( $xsl_doc );
+        $newdom = $proc->transformToDoc( $xml_doc );
 
-    // Consider adding initial xml into post meta field, then transforming and filling in post content
+        $my_post = array(
+            'ID' => $post->ID,
+            'post_content' => $newdom->saveXML(),
+        );
 
+        if ( ! wp_is_post_revision( $post->ID ) ) {
+
+            // unhook this function to prevent infinite loop
+            remove_action( 'save_post_prosody_poem', 'prosody_xml_transform');
+
+            // update the post, which calls save_post again
+            wp_update_post( $my_post, true );
+
+            // re-hook this function
+            add_action( 'save_post_prosody_poem', 'prosody_xml_transform');
+
+        }
+    }
 }
 
 // Adds meta box
@@ -105,12 +111,13 @@ function prosody_source_poem_meta_box($post=null)
     echo '</label> ';
     echo '<input type="text" id="prosody_source_poem" '
     . 'name="prosody_source_poem" value="' . esc_attr( $value ) .
-    '" size="100" />';
+    '" size="50" />';
 }
 
 
 // Saves meta data
 add_action( 'save_post_prosody_poem', 'prosody_source_poem_save_meta_box_data');
+
 /**
  * When the post is saved, saves our custom data.
  *
@@ -172,31 +179,4 @@ function prosody_source_poem_save_meta_box_data ($post_id=null)
     // Update the meta field in the database.
     update_post_meta( $post_id, 'Original Document', $my_data );
 }
-
-// Process:
-// Option 1:
-//      Create custom post type for Poem
-//      Put TEI into Post content field
-//      On Save action for Poem type:
-//          Create XSLT Process, read in post content as xml file (can this be done?),
-//          Read in XSL file
-//          Transform to html
-//          Attach post content (TEI) as post meta data (will need to define meta field)
-//          Replace post content with generated html
-//          Resave the post (For the second save, will need to check if html or tei - if tei, run xslt, if html, don't)
-
-// Option 2:
-//  Enable file upload with xml and xsl types for custom post type
-//  Use XSLT Process, load in both files and transform
-//  Set post content equal to generated html on save? Or is there an action that could be fired as soon the two files are uploade?
-
-// Option 3:
-// Instead of working on the server, just input TEI into post content field
-// Use Saxon CE to transform in the client
-
-
-
-
-
-
 

@@ -1,0 +1,6 @@
+#! /bin/bash
+
+set -e
+xsltproc --output output.html preprocess.xsl hardy_i_look_into_my_glass.xml
+
+diff output.html glass.html | tee output.diff

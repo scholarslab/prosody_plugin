@@ -13,6 +13,7 @@
  * License:
  */
 
+//  Create custom post type for poems
 add_action( 'init', 'prosody_create_post_type' );
 
 function prosody_create_post_type ()
@@ -29,10 +30,8 @@ function prosody_create_post_type ()
     );
 }
 
-// Current issue - post meta is only saved on save_post action, which means that $tei is being to set to an empty string until a second save action
-
-// Will using the save action actually be a problem due to autosaving in WP?
-add_action( 'publish_post_prosody_poem', 'prosody_xml_transform');
+// Transform xml in post meta to html in post_content when meta is updated
+add_action( 'updated_post_meta', 'prosody_xml_transform');
 
 function prosody_xml_transform ($post)
 {
@@ -42,9 +41,6 @@ function prosody_xml_transform ($post)
 
 
         $tei = get_post_meta( $post->ID, 'Original Document', true );
-        // $tei = $_POST['prosody_source_poem']; //this returns a string
-        // echo gettype($tei);
-        // var_dump($tei);
 
         $xml_doc = new DOMDocument();
         $xml_doc->loadXML( $tei );
@@ -64,13 +60,13 @@ function prosody_xml_transform ($post)
         if ( ! wp_is_post_revision( $post->ID ) ) {
 
             // unhook this function to prevent infinite loop
-            remove_action( 'save_post_prosody_poem', 'prosody_xml_transform');
+            remove_action( 'updated_post_meta', 'prosody_xml_transform');
 
             // update the post, which calls save_post again
             wp_update_post( $my_post, true );
 
             // re-hook this function
-            add_action( 'save_post_prosody_poem', 'prosody_xml_transform');
+            add_action( 'updated_post_meta', 'prosody_xml_transform');
 
         }
     }

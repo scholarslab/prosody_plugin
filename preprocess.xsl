@@ -5,7 +5,7 @@
     xmlns:prosody="http://www.prosody.org" xmlns:TEI="http://www.tei-c.org/ns/1.0"
     xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 
-    <xsl:output indent="no" method="xml" omit-xml-declaration="yes"/>
+    <xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
     <xsl:strip-space elements="*"/>
     <xsl:variable name="scheme"><xsl:value-of select="//TEI:lg/@rhyme"/></xsl:variable>
 
@@ -145,7 +145,7 @@
 			</xsl:if>
                         <xsl:variable name="foot-position" select="position()"/>
                         <xsl:variable name="foot-last" select="last()"/>
-                        <xsl:for-each select="tokenize(.,' ')">
+                        <xsl:for-each select="str:tokenize(.,' ')">
                             <xsl:if test="string(.)">
                                 <span class="prosody-syllable" real=""
                                     id="prosody-real-{$line-number}-{$seg-position}-{$foot-position}-{position()}"

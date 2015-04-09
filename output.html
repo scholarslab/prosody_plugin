@@ -1,1 +1,806 @@
-<div xmlns="http://www.w3.org/1999/xhtml" id="rhyme" style="display:none;"><div id="rhymespacer"> </div><form name="abab" id="rhymeform" autocomplete="off"><br/><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-1-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-1-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-1-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-1-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><br/><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-2-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-2-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-2-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-2-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><br/><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-3-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-3-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-3-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme"><input size="1" maxlength="1" value="" name="lrhyme-3-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/></div><div class="lrhyme check"><input type="submit" value="&#x2713;" size="1" maxlength="1" id="rhymecheck"/></div></form></div><div xmlns="http://www.w3.org/1999/xhtml" id="rhymebar"> </div><div xmlns="http://www.w3.org/1999/xhtml" xmlns:prosody="http://www.prosody.org" xmlns:TEI="http://www.tei-c.org/ns/1.0" id="poem"><div id="poemtitle"><h2>I Look Into My Glass<small class="date">(1898)</small></h2><h4>Thomas Hardy</h4></div><span class="space_1"/><span class="space_1"/><div class="prosody-line "><div class="prosody-shadowline" id="prosody-shadow-1" n="1" part="N" met="-+-+-+" real="-++--+|-+-+-+"><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-1-1-1" onclick="switchstress(this);"><span class="prosody-placeholder">I </span></span><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-1-1-2" onclick="switchstress(this);"><span class="prosody-placeholder">look</span></span><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-2-1-1" onclick="switchstress(this);"><span class="prosody-placeholder">in</span></span><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-2-2-1" onclick="switchstress(this);"><span class="prosody-placeholder">to</span></span><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-3-1-1" onclick="switchstress(this);"><span class="prosody-placeholder">my</span></span><span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-3-2-1" onclick="switchstress(this);"><span class="prosody-placeholder">glass,</span></span></div><div class="TEI-l" id="prosody-real-1" n="1" part="N" met="-+-+-+" real="-++--+|-+-+-+"><span style="display:none;" linegroupindex="1" answer="-+(3/3/4/3)">Meter</span></div></div></div>
+<div xmlns="http://www.w3.org/1999/xhtml" id="rhyme" style="display:none;">
+  <div id="rhymespacer"> </div>
+  <form name="abab" id="rhymeform" autocomplete="off">
+    <br/>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-1-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-1-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-1-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-1-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <br/>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-2-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-2-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-2-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-2-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <br/>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-3-1" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-3-2" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-3-3" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme">
+      <input size="1" maxlength="1" value="" name="lrhyme-3-4" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>
+    </div>
+    <div class="lrhyme check">
+      <input type="submit" value="&#x2713;" size="1" maxlength="1" id="rhymecheck"/>
+    </div>
+  </form>
+</div><div xmlns="http://www.w3.org/1999/xhtml" id="rhymebar"> </div><div xmlns="http://www.w3.org/1999/xhtml" xmlns:prosody="http://www.prosody.org" xmlns:TEI="http://www.tei-c.org/ns/1.0" id="poem">
+  <div id="poemtitle">
+    <h2>I Look Into My Glass<small class="date">(1898)</small></h2>
+    <h4>Thomas Hardy</h4>
+  </div>
+  <span class="space_1"/>
+  <span class="space_1"/>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-1" n="1" part="N" met="-+-+-+" real="-++--+|-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">I </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">look</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">in</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-2-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">to</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">my</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-1-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">glass,</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-1" n="1" part="N" met="-+-+-+" real="-++--+|-+-+-+">
+      <span style="display:none;" linegroupindex="1" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-1-1-1" onclick="switchfoot('prosody-real-1-1-1-1');"><token xmlns="">I</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-1-1-2" onclick="switchfoot('prosody-real-1-1-1-2');">
+        <token xmlns="">look</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-2-1-1" onclick="switchfoot('prosody-real-1-2-1-1');" discrepant="">
+        <token xmlns="">in</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-2-2-1" onclick="switchfoot('prosody-real-1-2-2-1');" discrepant="">
+        <token xmlns="">to</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-3-1-1" onclick="switchfoot('prosody-real-1-3-1-1');">
+        <token xmlns="">my</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-1-3-2-1" onclick="switchfoot('prosody-real-1-3-2-1');">
+        <token xmlns="">glass,</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress1" name="Check stress" onclick="checkstress(1)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet1" name="Check feet" onclick="checkfeet(1)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter1" name="Check meter" onclick="checkmeter(1,1)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-2" n="2" part="N" met="-+-+-+" real="-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">And </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">view</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">my </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">wast</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">ing</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-2-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">skin,</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-2" n="2" part="N" met="-+-+-+" real="-+-+-+">
+      <span style="display:none;" linegroupindex="2" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-1-1-1" onclick="switchfoot('prosody-real-2-1-1-1');"><token xmlns="">And</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-1-1-2" onclick="switchfoot('prosody-real-2-1-1-2');">
+        <token xmlns="">view</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-2-1-1" onclick="switchfoot('prosody-real-2-2-1-1');"><token xmlns="">my</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-2-1-2" onclick="switchfoot('prosody-real-2-2-1-2');">
+        <token xmlns="">wast</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-3-1-1" onclick="switchfoot('prosody-real-2-3-1-1');">
+        <token xmlns="">ing</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-2-3-2-1" onclick="switchfoot('prosody-real-2-3-2-1');">
+        <token xmlns="">skin,</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress2" name="Check stress" onclick="checkstress(2)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet2" name="Check feet" onclick="checkfeet(2)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter2" name="Check meter" onclick="checkmeter(2,2)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-3" n="3" part="N" met="-+-+-+-+" real="-+++-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">And </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">say,</span>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">"Would </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">God</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">it </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-3-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">came</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-4-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">to</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-3-4-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">pass</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-3" n="3" part="N" met="-+-+-+-+" real="-+++-+-+">
+      <span style="display:none;" linegroupindex="3" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-1-1-1" onclick="switchfoot('prosody-real-3-1-1-1');"><token xmlns="">And</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-1-1-2" onclick="switchfoot('prosody-real-3-1-1-2');">
+        <token xmlns="">say,</token>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-2-1-1" onclick="switchfoot('prosody-real-3-2-1-1');" discrepant=""><token xmlns="">"Would</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-2-1-2" onclick="switchfoot('prosody-real-3-2-1-2');" discrepant="">
+        <token xmlns="">God</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-3-1-1" onclick="switchfoot('prosody-real-3-3-1-1');"><token xmlns="">it</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-3-1-2" onclick="switchfoot('prosody-real-3-3-1-2');">
+        <token xmlns="">came</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-4-1-1" onclick="switchfoot('prosody-real-3-4-1-1');">
+        <token xmlns="">to</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-3-4-2-1" onclick="switchfoot('prosody-real-3-4-2-1');">
+        <token xmlns="">pass</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress3" name="Check stress" onclick="checkstress(3)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet3" name="Check feet" onclick="checkfeet(3)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter3" name="Check meter" onclick="checkmeter(3,3)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-4" n="4" part="N" met="-+-+-+" real="-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">My </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">heart</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">had </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">shrunk</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">as</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-4-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">thin!"</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-4" n="4" part="N" met="-+-+-+" real="-+-+-+">
+      <span style="display:none;" linegroupindex="4" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-1-1-1" onclick="switchfoot('prosody-real-4-1-1-1');"><token xmlns="">My</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-1-1-2" onclick="switchfoot('prosody-real-4-1-1-2');">
+        <token xmlns="">heart</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-2-1-1" onclick="switchfoot('prosody-real-4-2-1-1');"><token xmlns="">had</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-2-1-2" onclick="switchfoot('prosody-real-4-2-1-2');">
+        <token xmlns="">shrunk</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-3-1-1" onclick="switchfoot('prosody-real-4-3-1-1');">
+        <token xmlns="">as</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-4-3-2-1" onclick="switchfoot('prosody-real-4-3-2-1');">
+        <token xmlns="">thin!"</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress4" name="Check stress" onclick="checkstress(4)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet4" name="Check feet" onclick="checkfeet(4)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter4" name="Check meter" onclick="checkmeter(4,4)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <br/>
+  <span class="space_1"/>
+  <span class="space_1"/>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-5" n="5" part="N" met="-+-+-+" real="-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">For </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">then,</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">I,</span>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-2-3-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">un</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">dis</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-5-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">trest</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-5" n="5" part="N" met="-+-+-+" real="-+-+-+">
+      <span style="display:none;" linegroupindex="1" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-1-1-1" onclick="switchfoot('prosody-real-5-1-1-1');"><token xmlns="">For</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-1-1-2" onclick="switchfoot('prosody-real-5-1-1-2');">
+        <token xmlns="">then,</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-2-1-1" onclick="switchfoot('prosody-real-5-2-1-1');">
+        <token xmlns="">I,</token>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-2-3-1" onclick="switchfoot('prosody-real-5-2-3-1');">
+        <token xmlns="">un</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-3-1-1" onclick="switchfoot('prosody-real-5-3-1-1');">
+        <token xmlns="">dis</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-5-3-2-1" onclick="switchfoot('prosody-real-5-3-2-1');">
+        <token xmlns="">trest</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-note-button" id="displaynotebutton5" name="Note about this line" onclick="">
+          <img src="images/blank.gif"/>
+        </button>
+        <p class="prosody-note" id="hintfor5"><span>Note on line 5:</span> You might want to stress "I" here, set off as it is by a
+                        pair of commas. But by this point the first-person pronoun isn't news: it's
+                        occurred three times already in stanza one. Besides, stress thrown on "I"
+                        would detract from the stress of sense that belongs to the syllables on
+                        either side of it. "Then" emphasizes the desirability of that anesthetic
+                        state for which the poem professes to yearn; and more subtly "un-" does
+                        something of the same kind, highlighting the distress the speaker is all too
+                        palpably undergoing. And finally the regularity of a straight iambic
+                        scansion of this line mimics the condition of "equanimity" that is imagined
+                        (and likewise rhythmically performed) at the end of this stanza. </p>
+      </span>
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress5" name="Check stress" onclick="checkstress(5)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet5" name="Check feet" onclick="checkfeet(5)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter5" name="Check meter" onclick="checkmeter(5,1)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-6" n="6" part="N" met="-+-+-+" real="-+++-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">By </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">hearts</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">grown </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">cold</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">to</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-6-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">me,</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-6" n="6" part="N" met="-+-+-+" real="-+++-+">
+      <span style="display:none;" linegroupindex="2" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-1-1-1" onclick="switchfoot('prosody-real-6-1-1-1');"><token xmlns="">By</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-1-1-2" onclick="switchfoot('prosody-real-6-1-1-2');">
+        <token xmlns="">hearts</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-2-1-1" onclick="switchfoot('prosody-real-6-2-1-1');" discrepant=""><token xmlns="">grown</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-2-1-2" onclick="switchfoot('prosody-real-6-2-1-2');" discrepant="">
+        <token xmlns="">cold</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-3-1-1" onclick="switchfoot('prosody-real-6-3-1-1');">
+        <token xmlns="">to</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-6-3-2-1" onclick="switchfoot('prosody-real-6-3-2-1');">
+        <token xmlns="">me,</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress6" name="Check stress" onclick="checkstress(6)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet6" name="Check feet" onclick="checkfeet(6)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter6" name="Check meter" onclick="checkmeter(6,2)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-7" n="7" part="N" met="-+-+-+-+" real="-+-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">Could </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">lone</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">ly </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">wait</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">my </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-3-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">end</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-4-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">less</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-7-4-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">rest</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-7" n="7" part="N" met="-+-+-+-+" real="-+-+-+-+">
+      <span style="display:none;" linegroupindex="3" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-1-1-1" onclick="switchfoot('prosody-real-7-1-1-1');"><token xmlns="">Could</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-1-1-2" onclick="switchfoot('prosody-real-7-1-1-2');">
+        <token xmlns="">lone</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-2-1-1" onclick="switchfoot('prosody-real-7-2-1-1');"><token xmlns="">ly</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-2-1-2" onclick="switchfoot('prosody-real-7-2-1-2');">
+        <token xmlns="">wait</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-3-1-1" onclick="switchfoot('prosody-real-7-3-1-1');"><token xmlns="">my</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-3-1-2" onclick="switchfoot('prosody-real-7-3-1-2');">
+        <token xmlns="">end</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-4-1-1" onclick="switchfoot('prosody-real-7-4-1-1');">
+        <token xmlns="">less</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-7-4-2-1" onclick="switchfoot('prosody-real-7-4-2-1');">
+        <token xmlns="">rest</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress7" name="Check stress" onclick="checkstress(7)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet7" name="Check feet" onclick="checkfeet(7)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter7" name="Check meter" onclick="checkmeter(7,3)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-8" n="8" part="N" met="-+-+-+" real="-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">With </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">e</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">qua</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-2-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">ni</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">mi</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-8-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">ty.</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-8" n="8" part="N" met="-+-+-+" real="-+-+-+">
+      <span style="display:none;" linegroupindex="4" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-1-1-1" onclick="switchfoot('prosody-real-8-1-1-1');"><token xmlns="">With</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-1-1-2" onclick="switchfoot('prosody-real-8-1-1-2');">
+        <token xmlns="">e</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-2-1-1" onclick="switchfoot('prosody-real-8-2-1-1');">
+        <token xmlns="">qua</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-2-2-1" onclick="switchfoot('prosody-real-8-2-2-1');">
+        <token xmlns="">ni</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-3-1-1" onclick="switchfoot('prosody-real-8-3-1-1');">
+        <token xmlns="">mi</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-8-3-2-1" onclick="switchfoot('prosody-real-8-3-2-1');">
+        <token xmlns="">ty.</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress8" name="Check stress" onclick="checkstress(8)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet8" name="Check feet" onclick="checkfeet(8)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter8" name="Check meter" onclick="checkmeter(8,4)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <br/>
+  <span class="space_1"/>
+  <span class="space_1"/>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-9" n="9" part="N" met="-+-+-+" real="-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">But </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">Time</span>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">to </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">make</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">me</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-9-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">grieve,</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-9" n="9" part="N" met="-+-+-+" real="-+-+-+">
+      <span style="display:none;" linegroupindex="1" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-1-1-1" onclick="switchfoot('prosody-real-9-1-1-1');"><token xmlns="">But</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-1-1-2" onclick="switchfoot('prosody-real-9-1-1-2');">
+        <token xmlns="">Time</token>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-2-1-1" onclick="switchfoot('prosody-real-9-2-1-1');"><token xmlns="">to</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-2-1-2" onclick="switchfoot('prosody-real-9-2-1-2');">
+        <token xmlns="">make</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-3-1-1" onclick="switchfoot('prosody-real-9-3-1-1');">
+        <token xmlns="">me</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-9-3-2-1" onclick="switchfoot('prosody-real-9-3-2-1');">
+        <token xmlns="">grieve,</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress9" name="Check stress" onclick="checkstress(9)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet9" name="Check feet" onclick="checkfeet(9)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter9" name="Check meter" onclick="checkmeter(9,1)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-10" n="10" part="N" met="++-+-+" real="++-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">Part </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">steals,</span>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">lets </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">part</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">a</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-10-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">bide;</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-10" n="10" part="N" met="++-+-+" real="++-+-+">
+      <span style="display:none;" linegroupindex="2" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-1-1-1" onclick="switchfoot('prosody-real-10-1-1-1');"><token xmlns="">Part</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-1-1-2" onclick="switchfoot('prosody-real-10-1-1-2');">
+        <token xmlns="">steals,</token>
+      </span>
+      <span class="caesura" style="display:none">//</span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-2-1-1" onclick="switchfoot('prosody-real-10-2-1-1');"><token xmlns="">lets</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-2-1-2" onclick="switchfoot('prosody-real-10-2-1-2');">
+        <token xmlns="">part</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-3-1-1" onclick="switchfoot('prosody-real-10-3-1-1');">
+        <token xmlns="">a</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-10-3-2-1" onclick="switchfoot('prosody-real-10-3-2-1');">
+        <token xmlns="">bide;</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress10" name="Check stress" onclick="checkstress(10)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet10" name="Check feet" onclick="checkfeet(10)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter10" name="Check meter" onclick="checkmeter(10,2)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-11" n="11" part="N" met="-+-+-+-+" real="-+-+-+-+">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">And </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">shakes</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">this </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">frag</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">ile </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-3-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">frame</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-4-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">at</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-11-4-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">eve</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-11" n="11" part="N" met="-+-+-+-+" real="-+-+-+-+">
+      <span style="display:none;" linegroupindex="3" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-1-1-1" onclick="switchfoot('prosody-real-11-1-1-1');"><token xmlns="">And</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-1-1-2" onclick="switchfoot('prosody-real-11-1-1-2');">
+        <token xmlns="">shakes</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-2-1-1" onclick="switchfoot('prosody-real-11-2-1-1');"><token xmlns="">this</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-2-1-2" onclick="switchfoot('prosody-real-11-2-1-2');">
+        <token xmlns="">frag</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-3-1-1" onclick="switchfoot('prosody-real-11-3-1-1');"><token xmlns="">ile</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-3-1-2" onclick="switchfoot('prosody-real-11-3-1-2');">
+        <token xmlns="">frame</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-4-1-1" onclick="switchfoot('prosody-real-11-4-1-1');">
+        <token xmlns="">at</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-11-4-2-1" onclick="switchfoot('prosody-real-11-4-2-1');">
+        <token xmlns="">eve</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress11" name="Check stress" onclick="checkstress(11)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet11" name="Check feet" onclick="checkfeet(11)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter11" name="Check meter" onclick="checkmeter(11,3)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="prosody-line ">
+    <div class="prosody-shadowline" id="prosody-shadow-12" n="12" part="N" met="-+-+-+" real="-+--++">
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-1-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">With </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-1-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">throb</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-2-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">bings </span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-2-1-2" onclick="switchstress(this);">
+        <span class="prosody-placeholder">of</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-3-1-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">noon</span>
+      </span>
+      <span class="prosody-shadowsyllable" shadow="" id="prosody-shadow-12-3-2-1" onclick="switchstress(this);">
+        <span class="prosody-placeholder">tide.</span>
+      </span>
+    </div>
+    <div class="TEI-l" id="prosody-real-12" n="12" part="N" met="-+-+-+" real="-+--++">
+      <span style="display:none;" linegroupindex="4" answer="-+(3/3/4/3)">Meter</span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-1-1-1" onclick="switchfoot('prosody-real-12-1-1-1');"><token xmlns="">With</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-1-1-2" onclick="switchfoot('prosody-real-12-1-1-2');">
+        <token xmlns="">throb</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-2-1-1" onclick="switchfoot('prosody-real-12-2-1-1');" discrepant=""><token xmlns="">bings</token> </span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-2-1-2" onclick="switchfoot('prosody-real-12-2-1-2');" discrepant="">
+        <token xmlns="">of</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-3-1-1" onclick="switchfoot('prosody-real-12-3-1-1');" discrepant="">
+        <token xmlns="">noon</token>
+      </span>
+      <span class="prosody-syllable" real="" id="prosody-real-12-3-2-1" onclick="switchfoot('prosody-real-12-3-2-1');" discrepant="">
+        <token xmlns="">tide.</token>
+      </span>
+    </div>
+    <div class="buttons">
+      <span class="button">
+        <button class="prosody-note-button" id="displaynotebutton12" name="Note about this line" onclick="">
+          <img src="images/blank.gif"/>
+        </button>
+        <p class="prosody-note" id="hintfor12"><span>Note on line 12:</span> Scansion as EKG monitor? When a good poet writes about
+                        the pounding heart, expect to hear and feel it in the verse. The perfectly
+                        regular iambics of line 11 are there to set up the syncopated, skipped beat
+                        with which the poem thuds home. If it weren't our rule that rhyme syllables
+                        take stress, we'd probably scan the last foot a trochee. Don't let the
+                        spondee keep you from feeling how the last syllable flags, in comparison to
+                        the brightness of "noon" just before it. Hardy thus registers both the
+                        strength of still-young feeling and its dangerous incongruity with the
+                        "fragile frame" of a man growing old. </p>
+      </span>
+      <span class="button">
+        <button class="prosody-checkstress" id="checkstress12" name="Check stress" onclick="checkstress(12)" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/stress-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-checkfeet" id="checkfeet12" name="Check feet" onclick="checkfeet(12)" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/feet-default.png"/>
+        </button>
+      </span>
+      <span class="button">
+        <button class="prosody-meter" id="checkmeter12" name="Check meter" onclick="checkmeter(12,4)" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
+          <img src="images/meter-default.png"/>
+        </button>
+      </span>
+    </div>
+  </div>
+  <br/>
+</div><div xmlns="http://www.w3.org/1999/xhtml" id="rhymeflag">Rhyme</div>

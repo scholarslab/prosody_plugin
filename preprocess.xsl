@@ -7,7 +7,11 @@
 
     <xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
     <xsl:strip-space elements="*"/>
-    <xsl:variable name="scheme"><xsl:value-of select="//TEI:lg/@rhyme"/></xsl:variable>
+    <xsl:variable name="scheme">
+      <xsl:for-each select="//TEI:lg/@rhyme">
+        <xsl:value-of select="."/>
+      </xsl:for-each>
+    </xsl:variable>
 
     <xsl:template match="/">
 			<xsl:if test="/TEI:TEI/TEI:text/TEI:body/TEI:lg[1]/@rhyme">

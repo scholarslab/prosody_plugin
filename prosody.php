@@ -46,7 +46,7 @@ function prosody_xml_transform ($post)
         $xml_doc->loadXML( $tei );
 
         $xsl_doc = new DOMDocument();
-        $xsl_doc->load( plugins_url( 'prosody.xsl', __FILE__ ) );
+        $xsl_doc->load( plugins_url( 'preprocess.xsl', __FILE__ ) );
 
         $proc = new XSLTProcessor();
         $proc->importStylesheet( $xsl_doc );
@@ -54,7 +54,7 @@ function prosody_xml_transform ($post)
 
         $my_post = array(
             'ID' => $post->ID,
-            'post_content' => $newdom->saveXML(),
+            'post_content' => $xml_doc->saveXML(),
         );
 
         if ( ! wp_is_post_revision( $post->ID ) ) {

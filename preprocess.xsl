@@ -6,7 +6,8 @@
     xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 
     <xsl:output indent="yes" method="xml" omit-xml-declaration="yes"/>
-    <xsl:strip-space elements="*"/>
+    <!-- <xsl:strip-space elements="*"/> -->
+    <xsl:preserve-space elements="seg"/>
     <xsl:variable name="scheme">
       <xsl:for-each select="//TEI:lg/@rhyme">
         <xsl:value-of select="."/>
@@ -39,8 +40,8 @@
                 <h2>
                     <xsl:apply-templates
                         select="/TEI:TEI/TEI:teiHeader/TEI:fileDesc/TEI:titleStmt/TEI:title"/>
-												<xsl:apply-templates
-		                        select="/TEI:TEI/TEI:teiHeader/TEI:fileDesc/TEI:publicationStmt/TEI:date"/>
+                    <xsl:apply-templates
+                        select="/TEI:TEI/TEI:teiHeader/TEI:fileDesc/TEI:publicationStmt/TEI:date"/>
                 </h2>
                 <xsl:if test="/TEI:TEI/TEI:teiHeader/TEI:fileDesc/TEI:titleStmt/TEI:author">
                     <h4>
@@ -57,7 +58,7 @@
     </xsl:template>
 
     <xsl:template match="TEI:space">
-        <span class="space_{@quantity}" />
+        <!-- <span class="space_{@quantity}" /> -->
     </xsl:template>
 
 		<xsl:template match="TEI:date">
@@ -107,8 +108,9 @@
                                     id="prosody-shadow-{$line-number}-{$seg-position}-{$foot-position}-{position()}"
                                     onclick="switchstress(this);">
                                     <span class="prosody-placeholder">
-                                        <xsl:copy-of select="string(.)"/>
-										<xsl:if test="not(position()=last())">
+                                        <xsl:apply-templates/>
+                                        <!-- <xsl:copy-of select="string(.)"/> -->
+				<xsl:if test="not(position()=last())">
 	                                        <xsl:text> </xsl:text>
 	                                    </xsl:if>
                                     </span>
@@ -157,7 +159,7 @@
                                     <xsl:if test="$discrepant-flag">
                                         <xsl:attribute name="discrepant"/>
                                     </xsl:if>
-                                    <xsl:copy-of select="."/>
+                                    <xsl:copy-of select="text()"/>
                                     <!-- add space back -->
 
                                     <xsl:if test="not(position()=last())">

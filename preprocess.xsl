@@ -193,7 +193,7 @@
                     <span class="button">
                         <button class="prosody-note-button" id="displaynotebutton{$line-number}"
                             name="Note about this line" onclick="">
-                            <img src="images/blank.gif"/>
+                            <img src="[PLUGIN_DIR]/blank.gif"/>
                         </button>
                         <p class="prosody-note" id="hintfor{$line-number}">
                             <span>Note on line <xsl:value-of select="$line-number"/>:</span>
@@ -204,19 +204,19 @@
                 <span class="button">
                     <button class="prosody-checkstress" id="checkstress{$line-number}"
                         name="Check stress" onclick="checkstress({$line-number})" onmouseover="Tip('Check stress', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
-                        <img src="images/stress-default.png"/>
+                        <img src="[PLUGIN_DIR]/stress-default.png"/>
                     </button>
                 </span>
                 <span class="button">
                     <button class="prosody-checkfeet" id="checkfeet{$line-number}" name="Check feet"
                         onclick="checkfeet({$line-number})" onmouseover="Tip('Check feet', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
-                        <img src="images/feet-default.png"/>
+                        <img src="[PLUGIN_DIR]/feet-default.png"/>
                     </button>
                 </span>
                 <span class="button">
                     <button class="prosody-meter" id="checkmeter{$line-number}" name="Check meter"
                         onclick="checkmeter({$line-number},{$linegroupindex})" onmouseover="Tip('Check meter', BGCOLOR, '#676767', BORDERWIDTH, 0, FONTCOLOR, '#FFF')" onmouseout="UnTip()">
-                        <img src="images/meter-default.png"/>
+                        <img src="[PLUGIN_DIR]/meter-default.png"/>
                     </button>
                 </span>
             </div>

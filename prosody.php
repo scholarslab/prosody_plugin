@@ -39,14 +39,16 @@ function prosody_xml_transform ($post)
 
     if ( $post ) {
 
-
         $tei = get_post_meta( $post->ID, 'Original Document', true );
 
+        $xslt = file_get_contents( plugins_url( 'preprocess.xsl', __FILE__ ) );
+        $xslt = str_replace('[PLUGIN_DIR]', plugins_url( 'images', __FILE__), $xslt);
+        // echo $xslt;
         $xml_doc = new DOMDocument();
         $xml_doc->loadXML( $tei );
 
         $xsl_doc = new DOMDocument();
-        $xsl_doc->load( plugins_url( 'preprocess.xsl', __FILE__ ) );
+        $xsl_doc->loadXML( $xslt );
 
         $proc = new XSLTProcessor();
         $proc->importStylesheet( $xsl_doc );

@@ -41,9 +41,9 @@ function prosody_xml_transform ($post)
 
         $tei = get_post_meta( $post->ID, 'Original Document', true );
 
-        $xslt = file_get_contents( plugins_url( 'preprocess.xsl', __FILE__ ) );
+        $xslt = file_get_contents( plugin_dir_path( __FILE__ ) . 'preprocess.xsl' );
         $xslt = str_replace('[PLUGIN_DIR]', plugins_url( 'images', __FILE__), $xslt);
-        // echo $xslt;
+
         $xml_doc = new DOMDocument();
         $xml_doc->loadXML( $tei );
 

@@ -5,3 +5,5 @@
 -text on 359 of glass is wrapped in button, not in output (this fits the stylesheet, so leave for now)
 - significant issue with spacing between words to fix
 
+- original uses a modal library, and, potentially tooltips. Need to figure out where those are used and what libraries we will use to replace them with.
+

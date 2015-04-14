@@ -102,7 +102,10 @@
                         </xsl:if>
                         <xsl:variable name="foot-position" select="position()"/>
                         <xsl:variable name="foot-last" select="last()"/>
-                        <xsl:for-each select="str:tokenize(string(.),' ')">
+                        <xsl:variable name="node-string" select="."/>
+                        <xsl:variable name="last-char-pos" select="string-length($node-string)"/>
+                        <xsl:variable name="last-char" select="substring($node-string, $last-char-pos)"/>
+                        <xsl:for-each select="str:tokenize($node-string,' ')">
                             <xsl:if test="string(.)">
                                 <span class="prosody-shadowsyllable" shadow=""
                                     id="prosody-shadow-{$line-number}-{$seg-position}-{$foot-position}-{position()}"
@@ -117,6 +120,9 @@
                                 </span>
                             </xsl:if>
                         </xsl:for-each>
+                        <xsl:if test="$last-char=' '">
+                            <xsl:text> </xsl:text>
+                        </xsl:if>
                     </xsl:for-each>
                     <xsl:if test="name(following-sibling::*[1]) = 'caesura'">
                         <span class="caesura" style="display:none">//</span>
@@ -151,6 +157,9 @@
 			</xsl:if>
                         <xsl:variable name="foot-position" select="position()"/>
                         <xsl:variable name="foot-last" select="last()"/>
+                        <xsl:variable name="node-string" select="."/>
+                        <xsl:variable name="last-char-pos" select="string-length($node-string)"/>
+                        <xsl:variable name="last-char" select="substring($node-string, $last-char-pos)"/>
                         <xsl:for-each select="str:tokenize(.,' ')">
                             <xsl:if test="string(.)">
                                 <span class="prosody-syllable" real=""
@@ -169,6 +178,9 @@
                                 </span>
                             </xsl:if>
                         </xsl:for-each>
+                        <xsl:if test="$last-char=' '">
+                            <xsl:text> </xsl:text>
+                        </xsl:if>
                     </xsl:for-each>
                     <xsl:if test="(name(following-sibling::*[1]) = 'caesura')">
                         <span class="caesura" style="display:none">//</span>

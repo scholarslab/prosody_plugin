@@ -54,7 +54,7 @@ function prosody_xml_transform ($post)
 
         $my_post = array(
             'ID' => $post->ID,
-            'post_content' => $xml_doc->saveXML(),
+            'post_content' => $newdom->saveXML(),
         );
 
         if ( ! wp_is_post_revision( $post->ID ) ) {

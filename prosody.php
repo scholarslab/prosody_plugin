@@ -282,3 +282,210 @@ function prosody_poem_author_save_meta_box_data ($post_id=null)
     update_post_meta( $post_id, 'Author', $my_data );
 }
 
+// Adds meta box for poem difficulty
+add_action( 'add_meta_boxes', 'prosody_poem_difficulty' );
+
+function prosody_poem_difficulty ()
+{
+    add_meta_box(
+        'prosody_poem_difficulty',
+        __('Difficulty:', 'prosody'),
+        'prosody_poem_difficulty_meta_box',
+        'prosody_poem'
+    );
+}
+
+// Prints meta box for poem difficulty
+function prosody_poem_difficulty_meta_box($post=null)
+{
+    $post = (is_null($post)) ? get_post() : $post;
+
+    //Add a nonce field so we can check for it later
+    wp_nonce_field(
+        'prosody_poem_difficulty_meta_box',
+        'prosody_poem_difficulty_meta_box_nonce'
+    );
+
+    /*
+     * Use get_post_meta() to retrieve an existing value
+     * from the database and use the value for the form.
+     */
+    $value = get_post_meta( $post->ID, 'Difficulty', true);
+
+    echo '<label for="prosody_poem_difficulty">';
+    __( 'Difficulty:', 'prosody' );
+    echo '</label> ';
+    echo '<input type="text" id="prosody_poem_difficulty" '
+    . 'name="prosody_poem_difficulty" value="' . esc_attr( $value ) .
+    '" size="50" />';
+}
+
+
+// Saves meta data
+add_action( 'save_post_prosody_poem', 'prosody_poem_difficulty_save_meta_box_data');
+
+/**
+ * When the post is saved, saves the poem difficulty.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function prosody_poem_difficulty_save_meta_box_data ($post_id=null)
+{
+    $post_id = (is_null($post_id)) ? get_post()->ID : $post_id;
+
+    /*
+     * We need to verify this came from our screen and with proper
+     * authorization, because the save_post action can be triggered at other
+     * times.
+     */
+
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['prosody_poem_difficulty_meta_box_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    $nonce = $_POST['prosody_poem_difficulty_meta_box_nonce'];
+    if ( ! wp_verify_nonce( $nonce, 'prosody_poem_difficulty_meta_box' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't
+    // want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Check the user's permissions.
+    if ( isset( $_POST['post_type'] ) &&
+       'prosody_poem' == $_POST['post_type'] ) {
+
+        if ( ! current_user_can( 'edit_page', $post_id ) ) {
+            return;
+        }
+
+    } else {
+
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    }
+
+    /* OK, its safe for us to save the data now. */
+
+    // Make sure that it is set.
+    if ( ! isset( $_POST['prosody_poem_difficulty'] ) ) {
+        return;
+    }
+
+    // Sanitize user input. In this case we don't so the transform will work.
+    $my_data = sanitize_text_field( $_POST['prosody_poem_difficulty'] );
+
+    // Update the meta field in the database.
+    update_post_meta( $post_id, 'Difficulty', $my_data );
+}
+
+// Adds meta box for poem type
+add_action( 'add_meta_boxes', 'prosody_poem_type' );
+
+function prosody_poem_type ()
+{
+    add_meta_box(
+        'prosody_poem_type',
+        __('Type:', 'prosody'),
+        'prosody_poem_type_meta_box',
+        'prosody_poem'
+    );
+}
+
+// Prints meta box for poem type
+function prosody_poem_type_meta_box($post=null)
+{
+    $post = (is_null($post)) ? get_post() : $post;
+
+    //Add a nonce field so we can check for it later
+    wp_nonce_field(
+        'prosody_poem_type_meta_box',
+        'prosody_poem_type_meta_box_nonce'
+    );
+
+    /*
+     * Use get_post_meta() to retrieve an existing value
+     * from the database and use the value for the form.
+     */
+    $value = get_post_meta( $post->ID, 'Type', true);
+
+    echo '<label for="prosody_poem_type">';
+    __( 'Type:', 'prosody' );
+    echo '</label> ';
+    echo '<input type="text" id="prosody_poem_type" '
+    . 'name="prosody_poem_type" value="' . esc_attr( $value ) .
+    '" size="50" />';
+}
+
+
+// Saves meta data
+add_action( 'save_post_prosody_poem', 'prosody_poem_type_save_meta_box_data');
+
+/**
+ * When the post is saved, saves the poem type.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function prosody_poem_type_save_meta_box_data ($post_id=null)
+{
+    $post_id = (is_null($post_id)) ? get_post()->ID : $post_id;
+
+    /*
+     * We need to verify this came from our screen and with proper
+     * authorization, because the save_post action can be triggered at other
+     * times.
+     */
+
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['prosody_poem_type_meta_box_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    $nonce = $_POST['prosody_poem_type_meta_box_nonce'];
+    if ( ! wp_verify_nonce( $nonce, 'prosody_poem_type_meta_box' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't
+    // want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Check the user's permissions.
+    if ( isset( $_POST['post_type'] ) &&
+       'prosody_poem' == $_POST['post_type'] ) {
+
+        if ( ! current_user_can( 'edit_page', $post_id ) ) {
+            return;
+        }
+
+    } else {
+
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    }
+
+    /* OK, its safe for us to save the data now. */
+
+    // Make sure that it is set.
+    if ( ! isset( $_POST['prosody_poem_type'] ) ) {
+        return;
+    }
+
+    // Sanitize user input. In this case we don't so the transform will work.
+    $my_data = sanitize_text_field( $_POST['prosody_poem_type'] );
+
+    // Update the meta field in the database.
+    update_post_meta( $post_id, 'Type', $my_data );
+}
+
+

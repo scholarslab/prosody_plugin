@@ -180,6 +180,7 @@ function prosody_source_poem_save_meta_box_data ($post_id=null)
 }
 
 // Adds meta box for poem author
+// Author will be left as a text box - whoever inputs the poems will need to make sure to keep spelling and capitalization consistent for any given author
 add_action( 'add_meta_boxes', 'prosody_poem_author' );
 
 function prosody_poem_author ()
@@ -283,6 +284,7 @@ function prosody_poem_author_save_meta_box_data ($post_id=null)
 }
 
 // Adds meta box for poem difficulty
+// Difficulty categories: Warming Up, Moving Along, Special Challenge
 add_action( 'add_meta_boxes', 'prosody_poem_difficulty' );
 
 function prosody_poem_difficulty ()
@@ -315,9 +317,14 @@ function prosody_poem_difficulty_meta_box($post=null)
     echo '<label for="prosody_poem_difficulty">';
     __( 'Difficulty:', 'prosody' );
     echo '</label> ';
-    echo '<input type="text" id="prosody_poem_difficulty" '
-    . 'name="prosody_poem_difficulty" value="' . esc_attr( $value ) .
-    '" size="50" />';
+    // echo '<input type="text" id="prosody_poem_difficulty" '
+    // . 'name="prosody_poem_difficulty" value="' . esc_attr( $value ) .
+    // '" size="50" />';
+    echo '<select>';
+    echo '<option value="warming_up">Warming Up</option>';
+    echo '<option value="moving_along">Moving Along</option>';
+    echo '<option value="special_challenge">Special Challenge</option>';
+    echo '</select>';
 }
 
 
@@ -386,6 +393,7 @@ function prosody_poem_difficulty_save_meta_box_data ($post_id=null)
 }
 
 // Adds meta box for poem type
+// Poem types: Ballad, Blank Verse, Cinquain, Couplet, Quatrain, Sixain, Song, Sonnet, Spenserian Stanza
 add_action( 'add_meta_boxes', 'prosody_poem_type' );
 
 function prosody_poem_type ()
@@ -418,9 +426,20 @@ function prosody_poem_type_meta_box($post=null)
     echo '<label for="prosody_poem_type">';
     __( 'Type:', 'prosody' );
     echo '</label> ';
-    echo '<input type="text" id="prosody_poem_type" '
-    . 'name="prosody_poem_type" value="' . esc_attr( $value ) .
-    '" size="50" />';
+    // echo '<input type="text" id="prosody_poem_type" '
+    // . 'name="prosody_poem_type" value="' . esc_attr( $value ) .
+    // '" size="50" />';
+    echo '<select>';
+    echo '<option value="ballad">Ballad</option>';
+    echo '<option value="blank_verse">Blank Verse</option>';
+    echo '<option value="cinquain">Cinquain</option>';
+    echo '<option value="couplet">Couplet</option>';
+    echo '<option value="quatrain">Quatrain</option>';
+    echo '<option value="sixain">Sixain</option>';
+    echo '<option value="song">Song</option>';
+    echo '<option value="sonnet">Sonnet</option>';
+    echo '<option value="spenserian_stanza">Spenserian Stanza</option>';
+    echo '</select>';
 }
 
 

@@ -318,7 +318,7 @@ function prosody_poem_difficulty_meta_box($post=null)
     __( 'Difficulty:', 'prosody' );
     echo '</label> ';
     echo '<select name="prosody_poem_difficulty" id="prosody_poem_difficulty">';
-    echo "<option value='warming_up' " . selected( $value, 'warming_up', false ) . '>Warming Up</option>';
+    echo '<option value="warming_up" ' . selected( $value, 'warming_up', false ) . '>Warming Up</option>';
     echo '<option value="moving_along" ' . selected( $value, 'moving_along', false ) . '>Moving Along</option>';
     echo '<option value="special_challenge" ' . selected( $value, 'special_challenge', false ) . '>Special Challenge</option>';
     echo '</select>';
@@ -423,19 +423,16 @@ function prosody_poem_type_meta_box($post=null)
     echo '<label for="prosody_poem_type">';
     __( 'Type:', 'prosody' );
     echo '</label> ';
-    // echo '<input type="text" id="prosody_poem_type" '
-    // . 'name="prosody_poem_type" value="' . esc_attr( $value ) .
-    // '" size="50" />';
     echo '<select name="prosody_poem_type" id="prosody_poem_type">';
-    echo '<option value="ballad">Ballad</option>';
-    echo '<option value="blank_verse">Blank Verse</option>';
-    echo '<option value="cinquain">Cinquain</option>';
-    echo '<option value="couplet">Couplet</option>';
-    echo '<option value="quatrain">Quatrain</option>';
-    echo '<option value="sixain">Sixain</option>';
-    echo '<option value="song">Song</option>';
-    echo '<option value="sonnet">Sonnet</option>';
-    echo '<option value="spenserian_stanza">Spenserian Stanza</option>';
+    echo '<option value="ballad" ' . selected( $value, 'ballad', false ) . '>Ballad</option>';
+    echo '<option value="blank_verse" ' . selected( $value, 'blank_verse', false ) . '>Blank Verse</option>';
+    echo '<option value="cinquain" ' . selected( $value, 'cinquain', false ) . '>Cinquain</option>';
+    echo '<option value="couplet" ' . selected( $value, 'couplet', false ) . '>Couplet</option>';
+    echo '<option value="quatrain" ' . selected( $value, 'quatrain', false ) . '>Quatrain</option>';
+    echo '<option value="sixain" ' . selected( $value, 'sixain', false ) . '>Sixain</option>';
+    echo '<option value="song" ' . selected( $value, 'song', false ) . '>Song</option>';
+    echo '<option value="sonnet" ' . selected( $value, 'sonnet', false ) . '>Sonnet</option>';
+    echo '<option value="spenserian_stanza" ' . selected( $value, 'spenserian_stanza', false ) . '>Spenserian Stanza</option>';
     echo '</select>';
 }
 

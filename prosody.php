@@ -317,16 +317,13 @@ function prosody_poem_difficulty_meta_box($post=null)
     echo '<label for="prosody_poem_difficulty">';
     __( 'Difficulty:', 'prosody' );
     echo '</label> ';
-    // echo '<input type="text" id="prosody_poem_difficulty" '
-    // . 'name="prosody_poem_difficulty" value="' . esc_attr( $value ) .
-    // '" size="50" />';
-    echo '<select>';
-    echo '<option value="warming_up">Warming Up</option>';
-    echo '<option value="moving_along">Moving Along</option>';
-    echo '<option value="special_challenge">Special Challenge</option>';
+    echo '<select name="prosody_poem_difficulty" id="prosody_poem_difficulty">';
+    echo "<option value='warming_up' " . selected( $value, 'warming_up', false ) . '>Warming Up</option>';
+    echo '<option value="moving_along" ' . selected( $value, 'moving_along', false ) . '>Moving Along</option>';
+    echo '<option value="special_challenge" ' . selected( $value, 'special_challenge', false ) . '>Special Challenge</option>';
     echo '</select>';
-}
 
+}
 
 // Saves meta data
 add_action( 'save_post_prosody_poem', 'prosody_poem_difficulty_save_meta_box_data');
@@ -385,11 +382,11 @@ function prosody_poem_difficulty_save_meta_box_data ($post_id=null)
         return;
     }
 
-    // Sanitize user input. In this case we don't so the transform will work.
-    $my_data = sanitize_text_field( $_POST['prosody_poem_difficulty'] );
+    // Sanitize user input. We don't need this since it's a dropdown.
+    // $my_data = sanitize_text_field( $_POST['prosody_poem_difficulty'] );
 
     // Update the meta field in the database.
-    update_post_meta( $post_id, 'Difficulty', $my_data );
+    update_post_meta( $post_id, 'Difficulty', $_POST['prosody_poem_difficulty'] );
 }
 
 // Adds meta box for poem type
@@ -429,7 +426,7 @@ function prosody_poem_type_meta_box($post=null)
     // echo '<input type="text" id="prosody_poem_type" '
     // . 'name="prosody_poem_type" value="' . esc_attr( $value ) .
     // '" size="50" />';
-    echo '<select>';
+    echo '<select name="prosody_poem_type" id="prosody_poem_type">';
     echo '<option value="ballad">Ballad</option>';
     echo '<option value="blank_verse">Blank Verse</option>';
     echo '<option value="cinquain">Cinquain</option>';

@@ -38,7 +38,7 @@ function prosody_xml_transform ($post)
 {
     global $post;
 
-    if ( $post ) {
+    if ( $post->post_type == 'prosody_poem' ) {
 
         $tei = get_post_meta( $post->ID, 'Original Document', true );
 

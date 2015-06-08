@@ -501,4 +501,16 @@ function prosody_poem_type_save_meta_box_data ($post_id=null)
     update_post_meta( $post_id, 'Type', $my_data );
 }
 
+// Enqeue the original javascript
+function prosody_add_handlers ()
+{
+    wp_enqueue_script(
+        'handlers_new.js',
+        plugins_url('handlers_new.js', __FILE__),
+        array(),
+        null,
+        true
+        );
+}
 
+add_action('wp_enqueue_scripts', 'prosody_add_handlers');

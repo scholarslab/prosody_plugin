@@ -17,7 +17,28 @@ var backslash = '';
 
 // function init (argument) {
 //     // this does a lot. Switch to using jquery on event
+//     Seems like all of this should be done in a document ready block
 // }
+//
+$(document).ready(function(){
+
+    var poemHeight = $('#poem').height();
+    var rhymeHeight = poemHeight + 20;
+    $('#rhymebar').height(rhymeHeight + 'px');
+    $('#rhyme').height(rhymeHeight + 'px');
+
+    var titleHeight = $('#poemtitle').height();
+    var spacerHeight = titleHeight + 44;
+    $('#rhymespacer').height(spacerHeight + 'px');
+
+    // initialize watch events to toggle the rhymebar
+    $('#rhymebar').on('click', function(){
+        $('#rhyme').toggle();
+    });
+    $('#rhymeflag').on('click', function(){
+        $('#rhyme').toggle();
+    });
+});
 
 function checkrhyme (argument) {
     // Checks whether the user entered rhyme is correct

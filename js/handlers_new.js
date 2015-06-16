@@ -87,16 +87,35 @@ function switchfoot (argument) {
 }
 
 
-function togglestress (argument) {
-    // body...
+function togglestress () {
+    // Reproducing this from original js - does this each work? Will test after getting stress marks working
+    $('.prosody-marker').each(function(el){
+        if($('#togglestress').val()){
+            el.show();
+        } else {
+            el.hide();
+        }
+    });
 }
 
 function togglefeet (argument) {
-    // body...
+    $('.prosody-footmarker').each(function(el){
+        if($('#togglefeet').val()){
+            el.show();
+        } else {
+            el.hide();
+        }
+    });
 }
 
 function togglecaesura (argument) {
-    // body...
+    $('.caesura').each(function(el){
+        if($('#togglecaesura').val()){
+            el.show();
+        } else {
+            el.hide();
+        }
+    });
 }
 
 function toggledifferences (argument) {

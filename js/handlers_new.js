@@ -38,6 +38,19 @@ $(document).ready(function(){
     $('#rhymeflag').on('click', function(){
         $('#rhyme').toggle();
     });
+
+    // watch for rhymeform submission and set scheme and answer
+    $('#rhymeform').on('submit', function(event){
+        var scheme = $('#rhymeform').attr('name').replace(/\s/g, "");
+        var ans = "";
+
+        var total = $('#rhymeform :input[type=text]');
+        $.each( total, function(index, object){
+            ans += object.value;
+        });
+        // checkrhyme(scheme, ans);
+        event.preventDefault();
+    });
 });
 
 function checkrhyme (argument) {

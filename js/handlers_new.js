@@ -48,13 +48,21 @@ $(document).ready(function(){
         $.each( total, function(index, object){
             ans += object.value;
         });
-        // checkrhyme(scheme, ans);
+        checkrhyme(scheme, ans);
         event.preventDefault();
     });
 });
 
-function checkrhyme (argument) {
-    // Checks whether the user entered rhyme is correct
+function checkrhyme (scheme, answer) {
+    if (scheme === answer) {
+        $('#rhymecheck').addClass('right');
+        $('#rhymecheck').removeClass('wrong');
+        $('#rhymecheck').val('\u2713');
+    } else {
+        $('#rhymecheck').addClass('wrong');
+        $('#rhymecheck').removeClass('right');
+        $('#rhymecheck').val('X');
+    }
 }
 
 function checkstress (argument) {

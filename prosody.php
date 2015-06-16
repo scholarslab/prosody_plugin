@@ -41,7 +41,6 @@ function prosody_xml_transform ($post)
     if ( $post->post_type == 'prosody_poem' ) {
 
         $tei = get_post_meta( $post->ID, 'Original Document', true );
-
         $xslt = file_get_contents( plugin_dir_path( __FILE__ ) . 'preprocess.xsl' );
         $xslt = str_replace('[PLUGIN_DIR]', plugins_url( 'images', __FILE__), $xslt);
 
@@ -59,6 +58,8 @@ function prosody_xml_transform ($post)
             'ID' => $post->ID,
             'post_content' => $newdom->saveXML(),
         );
+
+        wp_update_post($my_post, true);
 
         if ( ! wp_is_post_revision( $post->ID ) ) {
 
@@ -501,12 +502,12 @@ function prosody_poem_type_save_meta_box_data ($post_id=null)
     update_post_meta( $post_id, 'Type', $my_data );
 }
 
-// Enqeue the original javascript
+// Enqeue the new javascript
 function prosody_add_handlers ()
 {
     wp_enqueue_script(
         'handlers_new.js',
-        plugins_url('handlers_new.js', __FILE__),
+        plugins_url('js/handlers_new.js', __FILE__),
         array(),
         null,
         true

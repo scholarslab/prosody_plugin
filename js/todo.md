@@ -17,9 +17,12 @@
     - check stress that are currently in the shadow line (collection of shadow syllables) match element in the .prosody-shadowline
 
 - check feet
-    - check feet that are currently in the line; match element in the .prosody-shadowline (?).
+    - check feet that are currently in the line; match element in the span.prosody-real.
 
 - check * buttons ()
     - for each of three buttons (check stress, check feet, check meter), display small popup on hover that says what button does
     - on click, runs function to actually check correctness. If incorrect, shows red x icon, if correct, shows yellow asterisk image (images/expected.png)
+
+- toggle *
+    - buttons on bottom right that toggle whether feet, stress, caesurae, and differences (?) show
 

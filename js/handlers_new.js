@@ -22,6 +22,13 @@ var backslash = '';
 //
 $(document).ready(function(){
 
+    // Needs lines to set stress for each real syllable to be empty string
+    // var realSpans = $('span[real]');
+    // $.each(realSpans, function(index, object){
+    //     object.stress = "";
+    // });
+    // console.log(realSpans);
+
     var poemHeight = $('#poem').height();
     var rhymeHeight = poemHeight + 20;
     $('#rhymebar').height(rhymeHeight + 'px');
@@ -82,8 +89,15 @@ function switchstress (argument) {
 }
 
 
-function switchfoot (argument) {
-    // switch the foot
+function switchfoot ( syllableId ) {
+    var syllableSpan = $('#' + syllableId + ' span');
+    if ( syllableSpan.length === 0 ) {
+        $('#' + syllableId).append('<span class="prosody-footmarker" style="display: none">|</span>');
+        syllableSpan = $('#' + syllableId + ' span');
+    }
+    syllableSpan.toggle();
+
+    $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", "wp-content/plugins/prosody_plugin/images/feet-default.png");
 }
 
 

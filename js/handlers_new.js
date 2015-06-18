@@ -76,9 +76,6 @@ function checkstress (argument) {
     // check the user entered stress
 }
 
-function checkfeet (argument) {
-    // body...
-}
 
 function checkmeter (argument) {
     // body...
@@ -100,6 +97,14 @@ function switchfoot ( syllableId ) {
     $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", "wp-content/plugins/prosody_plugin/images/feet-default.png");
 }
 
+function checkfeet ( lineNumber ) {
+    var answer = $('#prosody-real-' + lineNumber + ' span[real]').text();
+    if ( answer.endsWith('|')) {
+        answer = answer.slice(0, -1);
+    }
+
+
+}
 
 function togglestress () {
     // Reproducing this from original js - does this each work? Will test after getting stress marks working

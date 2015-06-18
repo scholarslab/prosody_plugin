@@ -135,10 +135,19 @@
                     <xsl:apply-templates select="TEI:space" />
 <!--                 </xsl:if> -->
 
-                <xsl:copy-of select="@*"/>
+                <xsl:for-each select="@*">
+                  <xsl:attribute name="data-{name()}"><xsl:value-of select="."/></xsl:attribute>
+                </xsl:for-each>
+                <xsl:attribute name="data-feet">
+                  <xsl:for-each select="TEI:seg">
+                    <xsl:if test="position()>1">|</xsl:if>
+                    <xsl:value-of select="."/>
+                  </xsl:for-each>
+                </xsl:attribute>
 
                 <span style="display:none;" linegroupindex="{$linegroupindex}" answer="{../@met}"
                     >Meter</span>
+
 
                 <xsl:for-each select="TEI:seg">
                     <!-- if the following flag gets set, this indicates that there is a discrepancy in the line which must be later

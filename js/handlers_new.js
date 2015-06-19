@@ -107,9 +107,11 @@ function checkfeet ( lineNumber ) {
     scheme = scheme.replace(/\s+/g, '');
     answer = answer.replace(/\s+/g, '');
 
-    console.log(scheme);
-    console.log(answer);
-
+    if ( scheme === answer) {
+        $("#checkfeet" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+    } else {
+        $("#checkfeet" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+    }
 }
 
 function togglestress () {

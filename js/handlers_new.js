@@ -89,20 +89,26 @@ function switchstress (argument) {
 function switchfoot ( syllableId ) {
     var syllableSpan = $('#' + syllableId + ' span');
     if ( syllableSpan.length === 0 ) {
-        $('#' + syllableId).append('<span class="prosody-footmarker" style="display: none">|</span>');
+        $('#' + syllableId).append('<span class="prosody-footmarker">|</span>');
         syllableSpan = $('#' + syllableId + ' span');
+    } else {
+        $('#' + syllableId + ' .prosody-footmarker').remove();
     }
-    syllableSpan.toggle();
 
     $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", "wp-content/plugins/prosody_plugin/images/feet-default.png");
 }
 
 function checkfeet ( lineNumber ) {
-    var answer = $('#prosody-real-' + lineNumber + ' span[real]').text();
-    if ( answer.endsWith('|')) {
-        answer = answer.slice(0, -1);
+    var scheme = $('#prosody-real-' + lineNumber + ' span[real]').text();
+    var answer = $('#prosody-real-' + lineNumber).data('feet');
+    if ( scheme.endsWith('|')) {
+        scheme = scheme.slice(0, -1);
     }
+    scheme = scheme.replace(/\s+/g, '');
+    answer = answer.replace(/\s+/g, '');
 
+    console.log(scheme);
+    console.log(answer);
 
 }
 

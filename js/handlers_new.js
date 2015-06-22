@@ -153,7 +153,9 @@ function toggledifferences (argument) {
 // }
 
 function addMarker ( real, symbol ) {
-    var prosodyMarker = '<span class="prosody-marker"></span>';
+    // var prosodyMarker = '<span class="prosody-marker"></span>';
+    var prosodyMarker = document.createElement("span");
+    prosodyMarker.className = "prosody-marker";
 
     var syllableText = real.text();
 
@@ -178,17 +180,21 @@ function marker ( real ) {
     return addMarker( real, "/" ) ;
 }
 
-function slackMarker ( real ) {
+function slackmarker ( real ) {
     return addMarker ( real, "\u222A" );
 }
 
-// function footMarker (argument) {
-//     // body...
+// I've defined this function, but am leaving it commented out as it not otherwise referenced in the application.
+// function footmarker ( real ) {
+//     var footMark = document.createElement('span');
+//     footMark.className = "prosody-footmarker";
+//     footMark.appendChild(document.createTextNode('|'));
+//     return footMark;
 // }
 
-// function placeholder (argument) {
-//     // ?
-// }
+function placeholder ( real ) {
+    return addMarker( real, " " );
+}
 
 
 // function updateHintButton (argument) {

@@ -3,9 +3,9 @@ var space = '\u00A0';
 var cup = '\u222a';
 var backslash = '';
 
-// function removeAllChildren (argument) {
-//     // Will need to rewrite without prototype elements
-// }
+function removeAllChildren () {
+    $(this).empty();
+}
 
 // function getInnerText (argument) {
 //     // body...
@@ -78,7 +78,12 @@ function checkmeter (argument) {
 
 function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
-    // console.log(realSyllable.stress);
+
+    if( realSyllable.stress === '-' || realSyllable.stress === '') {
+        $('#' + shadowSyllable.id).fadeIn();
+        shadowSyllable.removeAllChildren();
+    }
+
 }
 
 function checkstress (argument) {

@@ -72,19 +72,18 @@ function checkrhyme (scheme, answer) {
     }
 }
 
-function checkstress (argument) {
-    // check the user entered stress
-}
-
-
 function checkmeter (argument) {
     // body...
 }
 
-function switchstress (argument) {
-    // Changes the stress
+function switchstress (shadowSyllable) {
+    var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
+    // console.log(realSyllable.stress);
 }
 
+function checkstress (argument) {
+    // check the user entered stress
+}
 
 function switchfoot ( syllableId ) {
     var syllableSpan = $('#' + syllableId + ' span');
@@ -153,17 +152,35 @@ function toggledifferences (argument) {
 //     // what is the difference between this and getInnerText/pullText
 // }
 
-// function addMarker (argument) {
-//     // body...
-// }
+function addMarker ( real, symbol ) {
+    var prosodyMarker = '<span class="prosody-marker"></span>';
 
-// function marker (argument) {
-//     // not sure what this does.
-// }
+    var syllableText = real.text();
 
-// function slackMarker (argument) {
-//     // body...
-// }
+    var textLength = syllableText.length;
+    var textMiddle = Math.floor(textLength/2);
+
+    var textMod = textLength % 2;
+    spacer = "\u00A0".times(textMiddle);
+
+    if ( textMod === 0) {
+        lspacer = "\u00A0".times(textMiddle -1);
+        prosodyMarker.text( lspacer + symbol + lspacer + "\u00A0");
+    } else {
+        prosodyMarker.text( spacer + symbol + spacer );
+    }
+
+    return prosodyMarker;
+
+}
+
+function marker ( real ) {
+    return addMarker( real, "/" ) ;
+}
+
+function slackMarker ( real ) {
+    return addMarker ( real, "\u222A" );
+}
 
 // function footMarker (argument) {
 //     // body...

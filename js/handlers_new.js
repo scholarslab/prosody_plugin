@@ -22,12 +22,9 @@ function removeAllChildren () {
 //
 $(document).ready(function(){
 
-    // Needs lines to set stress for each real syllable to be empty string
-    // var realSpans = $('span[real]');
-    // $.each(realSpans, function(index, object){
-    //     object.stress = "";
-    // });
-    // console.log(realSpans);
+    // Set initial stress to an empty string for all real spans
+    var realSpans = $('span[real]');
+    realSpans.attr('data-stress', '');
 
     var poemHeight = $('#poem').height();
     var rhymeHeight = poemHeight + 20;
@@ -79,9 +76,11 @@ function checkmeter (argument) {
 function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
 
-    if( realSyllable.stress === '-' || realSyllable.stress === '') {
+    if( realSyllable.stress === '-' || realSyllable.stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();
         shadowSyllable.removeAllChildren();
+        $('#' + shadowSyllable.id).append(marker(realSyllable));
+        realSyllable.stress = '+';
     }
 
 }

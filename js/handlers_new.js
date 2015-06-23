@@ -3,9 +3,9 @@ var space = '\u00A0';
 var cup = '\u222a';
 var backslash = '';
 
-function removeAllChildren () {
-    $(this).empty();
-}
+// function empty () {
+//     $(this).empty();
+// }
 
 // function getInnerText (argument) {
 //     // body...
@@ -75,14 +75,35 @@ function checkmeter (argument) {
 
 function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
+    var stress = realSyllable.attr('data-stress');
+    console.log(stress);
 
-    if( realSyllable.stress === '-' || realSyllable.stress === '' ) {
+    if( stress === '-' || stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();
-        shadowSyllable.removeAllChildren();
+        $('#' + shadowSyllable.id).empty();
         $('#' + shadowSyllable.id).append(marker(realSyllable));
-        realSyllable.stress = '+';
+        // Need to rewrite below line with jquery
+        // realSyllable.stress = '+';
+        realSyllable.attr('data-stress', '+');
+    } else if ( stress === "+") {
+        $('#' + shadowSyllable.id).fadeOut();
+        setTimeout(function () {
+            $('#' + shadowSyllable.id).empty();
+            $('#' + shadowSyllable.id).append(slackmarker(realSyllable));
+        }, 150);
+        $('#' + shadowSyllable.id).fadeIn();
+    } else {
+        $('#' + shadowSyllable.id).fadeOut();
+        setTimeout(function () {
+            $('#' + shadowSyllable.id).empty();
+            $('#' + shadowSyllable.id).append(placeholder(realSyllable));
+            // Need to rewrite below line
+            // realSyllable.stress = '-';
+            realSyllable.attr('data-stress', '+');
+        }, 150);
     }
 
+    $('#checkstress' + shadowSyllable.id + 'img').attr('src', 'wp-content/plugins/prosody_plugin/images/stress-default.png');
 }
 
 function checkstress (argument) {
@@ -167,24 +188,37 @@ function addMarker ( real, symbol ) {
     var textMiddle = Math.floor(textLength/2);
 
     var textMod = textLength % 2;
-    spacer = "\u00A0".times(textMiddle);
+    // var spacer = "\u00A0".times(textMiddle);
+    var spacer = '';
 
-    if ( textMod === 0) {
-        lspacer = "\u00A0".times(textMiddle -1);
-        prosodyMarker.text( lspacer + symbol + lspacer + "\u00A0");
-    } else {
-        prosodyMarker.text( spacer + symbol + spacer );
+    for (var i = textMiddle - 1; i >= 0; i--) {
+        spacer = spacer + '\u00A0';
     }
 
+    if ( textMod === 0) {
+        // var lspacer = "\u00A0".times(textMiddle -1);
+        var lspacer = '';
+        for (var j = textMiddle - 2; j >= 0; j--) {
+            lspacer = lspacer + '\u00A0';
+        }
+        prosodyMarker.textContent = lspacer + symbol + lspacer + "\u00A0";
+    } else {
+        prosodyMarker.textContent = spacer + symbol + spacer;
+    }
+    console.log('addMarker');
     return prosodyMarker;
 
 }
 
 function marker ( real ) {
+    console.log('Marker');
+
     return addMarker( real, "/" ) ;
 }
 
 function slackmarker ( real ) {
+    console.log('slackMarker');
+
     return addMarker ( real, "\u222A" );
 }
 
@@ -197,6 +231,8 @@ function slackmarker ( real ) {
 // }
 
 function placeholder ( real ) {
+    console.log('placeholder');
+
     return addMarker( real, " " );
 }
 

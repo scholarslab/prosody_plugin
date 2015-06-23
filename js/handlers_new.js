@@ -90,6 +90,7 @@ function switchstress (shadowSyllable) {
         setTimeout(function () {
             $('#' + shadowSyllable.id).empty();
             $('#' + shadowSyllable.id).append(slackmarker(realSyllable));
+            realSyllable.attr('data-stress', '\u222a');
         }, 150);
         $('#' + shadowSyllable.id).fadeIn();
     } else {
@@ -99,8 +100,9 @@ function switchstress (shadowSyllable) {
             $('#' + shadowSyllable.id).append(placeholder(realSyllable));
             // Need to rewrite below line
             // realSyllable.stress = '-';
-            realSyllable.attr('data-stress', '+');
+            realSyllable.attr('data-stress', '-');
         }, 150);
+        $('#' + shadowSyllable.id).fadeIn();
     }
 
     $('#checkstress' + shadowSyllable.id + 'img').attr('src', 'wp-content/plugins/prosody_plugin/images/stress-default.png');

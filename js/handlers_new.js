@@ -81,11 +81,40 @@ function switchstress (shadowSyllable) {
         $('#' + shadowSyllable.id).fadeIn();
     }
 
-    $('#checkstress' + shadowSyllable.id + 'img').attr('src', 'wp-content/plugins/prosody_plugin/images/stress-default.png');
+    $('#checkstress' + shadowSyllable.id.substring(15,16) + ' img').attr('src', 'wp-content/plugins/prosody_plugin/images/stress-default.png');
 }
 
-function checkstress (argument) {
-    // check the user entered stress
+function checkstress ( lineNumber ) {
+    // Scheme is the user submitted stress marks
+    var scheme = '';
+    $('#prosody-real-' + lineNumber + ' span[real').each(
+        function () {
+            var syllableStress = $(this).data('stress');
+            scheme += syllableStress;
+        }
+    );
+
+    // Make sure the answer is complete
+    var answerLength = $('#prosody-real-' + lineNumber + ' span[real]').length;
+    var schemeLength = scheme.length;
+    console.log(answerLength);
+    console.log(schemeLength);
+    // console.log(scheme);
+    // if ( answerLength !== schemeLength ) {
+    //     alert("An answer must be complete to be submitted. Please fill in a symbol over each syllable in this line.");
+    //     return;
+    // } else {
+    //     console.log("answer is fine");
+    // }
+
+    var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
+    answer = answer[0].replace(/-/g, '\u222a');
+
+    if ( scheme === answer ) {
+        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+    } else {
+        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+    }
 }
 
 function switchfoot ( syllableId ) {

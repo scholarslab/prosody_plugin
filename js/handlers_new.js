@@ -47,7 +47,7 @@ function checkrhyme (scheme, answer) {
     }
 }
 
-function checkmeter (argument) {
+function checkmeter ( lineNumber, lineGroupIndex ) {
     // body...
 }
 
@@ -97,8 +97,7 @@ function checkstress ( lineNumber ) {
     // Make sure the answer is complete
     var answerLength = $('#prosody-real-' + lineNumber + ' span[real]').length;
     var schemeLength = scheme.length;
-    console.log(answerLength);
-    console.log(schemeLength);
+
     // console.log(scheme);
     // if ( answerLength !== schemeLength ) {
     //     alert("An answer must be complete to be submitted. Please fill in a symbol over each syllable in this line.");
@@ -110,7 +109,9 @@ function checkstress ( lineNumber ) {
     var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
     var realAnswer = answer[0].replace(/-/g, '\u222a');
     var expectedAnswer = answer[1].replace(/-/g, '\u222a');
-    console.log(expectedAnswer);
+
+    console.log(scheme);
+    console.log(realAnswer);
 
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
@@ -149,40 +150,40 @@ function checkfeet ( lineNumber ) {
     }
 }
 
-function togglestress () {
-    // Reproducing this from original js - does this each work? Will test after getting stress marks working
-    $('.prosody-marker').each(function(el){
-        if($('#togglestress').val()){
-            el.show();
-        } else {
-            el.hide();
-        }
-    });
-}
+// function togglestress () {
+//     // Reproducing this from original js - does this each work? Will test after getting stress marks working
+//     $('.prosody-marker').each(function(el){
+//         if($('#togglestress').val()){
+//             el.show();
+//         } else {
+//             el.hide();
+//         }
+//     });
+// }
 
-function togglefeet (argument) {
-    $('.prosody-footmarker').each(function(el){
-        if($('#togglefeet').val()){
-            el.show();
-        } else {
-            el.hide();
-        }
-    });
-}
+// function togglefeet (argument) {
+//     $('.prosody-footmarker').each(function(el){
+//         if($('#togglefeet').val()){
+//             el.show();
+//         } else {
+//             el.hide();
+//         }
+//     });
+// }
 
-function togglecaesura (argument) {
-    $('.caesura').each(function(el){
-        if($('#togglecaesura').val()){
-            el.show();
-        } else {
-            el.hide();
-        }
-    });
-}
+// function togglecaesura (argument) {
+//     $('.caesura').each(function(el){
+//         if($('#togglecaesura').val()){
+//             el.show();
+//         } else {
+//             el.hide();
+//         }
+//     });
+// }
 
-function toggledifferences (argument) {
-    // body...
-}
+// function toggledifferences (argument) {
+//     // body...
+// }
 
 // function grabText (argument) {
 //     // what is the difference between this and getInnerText/pullText

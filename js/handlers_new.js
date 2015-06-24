@@ -48,7 +48,29 @@ function checkrhyme (scheme, answer) {
 }
 
 function checkmeter ( lineNumber, lineGroupIndex ) {
-    // body...
+    var fullAnswer = $('#prosody-real-' + lineNumber + " span[answer]").attr('answer');
+    var footType = fullAnswer.split('(')[0];
+    var numberFeet = fullAnswer.match(/\d+/g)[lineGroupIndex-1];
+    var correctAnswer = footType + numberFeet;
+    console.log("real answer is: " + correctAnswer);
+
+    $('#check-answer').one("click", function () {
+        var footScheme = $('#foot-select').val();
+        var numberScheme = $('#number-select').val();
+        var fullScheme = footScheme + numberScheme;
+        console.log("fullscheme: " + fullScheme);
+
+        if ( correctAnswer === fullScheme ) {
+            $('#checkmeter' + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+        } else {
+            $('#checkmeter' + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+        }
+
+        $('#meter-select').dialog( "close" );
+    });
+
+    $('#meter-select').dialog( "open" );
+
 }
 
 function switchstress (shadowSyllable) {

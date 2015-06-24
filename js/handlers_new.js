@@ -1,25 +1,3 @@
-// symbols used;
-var space = '\u00A0';
-var cup = '\u222a';
-var backslash = '';
-
-// function empty () {
-//     $(this).empty();
-// }
-
-// function getInnerText (argument) {
-//     // body...
-// }
-
-// function pullText (argument) {
-//     // what's the difference between this and getInnerText
-// }
-
-// function init (argument) {
-//     // this does a lot. Switch to using jquery on event
-//     Seems like all of this should be done in a document ready block
-// }
-//
 $(document).ready(function(){
 
     // Set initial stress to an empty string for all real spans
@@ -76,14 +54,14 @@ function checkmeter (argument) {
 function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
-    console.log(stress);
+
+    var syllableWidth = realSyllable.width();
+    shadowSyllable.style.width = syllableWidth + 'px';
 
     if( stress === '-' || stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();
         $('#' + shadowSyllable.id).empty();
         $('#' + shadowSyllable.id).append(marker(realSyllable));
-        // Need to rewrite below line with jquery
-        // realSyllable.stress = '+';
         realSyllable.attr('data-stress', '+');
     } else if ( stress === "+") {
         $('#' + shadowSyllable.id).fadeOut();
@@ -98,8 +76,6 @@ function switchstress (shadowSyllable) {
         setTimeout(function () {
             $('#' + shadowSyllable.id).empty();
             $('#' + shadowSyllable.id).append(placeholder(realSyllable));
-            // Need to rewrite below line
-            // realSyllable.stress = '-';
             realSyllable.attr('data-stress', '-');
         }, 150);
         $('#' + shadowSyllable.id).fadeIn();
@@ -180,7 +156,6 @@ function toggledifferences (argument) {
 // }
 
 function addMarker ( real, symbol ) {
-    // var prosodyMarker = '<span class="prosody-marker"></span>';
     var prosodyMarker = document.createElement("span");
     prosodyMarker.className = "prosody-marker";
 
@@ -190,7 +165,6 @@ function addMarker ( real, symbol ) {
     var textMiddle = Math.floor(textLength/2);
 
     var textMod = textLength % 2;
-    // var spacer = "\u00A0".times(textMiddle);
     var spacer = '';
 
     for (var i = textMiddle - 1; i >= 0; i--) {
@@ -198,7 +172,6 @@ function addMarker ( real, symbol ) {
     }
 
     if ( textMod === 0) {
-        // var lspacer = "\u00A0".times(textMiddle -1);
         var lspacer = '';
         for (var j = textMiddle - 2; j >= 0; j--) {
             lspacer = lspacer + '\u00A0';
@@ -207,20 +180,15 @@ function addMarker ( real, symbol ) {
     } else {
         prosodyMarker.textContent = spacer + symbol + spacer;
     }
-    console.log('addMarker');
     return prosodyMarker;
 
 }
 
 function marker ( real ) {
-    console.log('Marker');
-
     return addMarker( real, "/" ) ;
 }
 
 function slackmarker ( real ) {
-    console.log('slackMarker');
-
     return addMarker ( real, "\u222A" );
 }
 
@@ -233,8 +201,6 @@ function slackmarker ( real ) {
 // }
 
 function placeholder ( real ) {
-    console.log('placeholder');
-
     return addMarker( real, " " );
 }
 

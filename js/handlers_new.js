@@ -108,10 +108,14 @@ function checkstress ( lineNumber ) {
     // }
 
     var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
-    answer = answer[0].replace(/-/g, '\u222a');
+    var realAnswer = answer[0].replace(/-/g, '\u222a');
+    var expectedAnswer = answer[1].replace(/-/g, '\u222a');
+    console.log(expectedAnswer);
 
-    if ( scheme === answer ) {
+    if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+    } else if ( scheme === expectedAnswer) {
+        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/expected.png");
     } else {
         $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
     }

@@ -20,6 +20,9 @@ $(document).ready(function(){
     $('#togglefeet').click(function(){
         togglefeet(this);
     });
+    $('#togglecaesura').click(function(){
+        togglecaesura(this);
+    });
 
     // initialize watch events to toggle the rhymebar
     $('#rhymebar').on('click', function(){
@@ -195,15 +198,15 @@ function togglefeet (node) {
     });
 }
 
-// function togglecaesura (argument) {
-//     $('.caesura').each(function(el){
-//         if($('#togglecaesura').val()){
-//             el.show();
-//         } else {
-//             el.hide();
-//         }
-//     });
-// }
+function togglecaesura (node) {
+    $('.caesura').each(function(i, el){
+        if(node.checked){
+            $(el).show();
+        } else {
+            $(el).hide();
+        }
+    });
+}
 
 // function toggledifferences (argument) {
 //     // body...

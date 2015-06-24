@@ -208,14 +208,6 @@ function togglecaesura (node) {
     });
 }
 
-// function toggledifferences (argument) {
-//     // body...
-// }
-
-// function grabText (argument) {
-//     // what is the difference between this and getInnerText/pullText
-// }
-
 function addMarker ( real, symbol ) {
     var prosodyMarker = document.createElement("span");
     prosodyMarker.className = "prosody-marker";
@@ -242,7 +234,6 @@ function addMarker ( real, symbol ) {
         prosodyMarker.textContent = spacer + symbol + spacer;
     }
     return prosodyMarker;
-
 }
 
 function marker ( real ) {
@@ -253,31 +244,6 @@ function slackmarker ( real ) {
     return addMarker ( real, "\u222A" );
 }
 
-// I've defined this function, but am leaving it commented out as it not otherwise referenced in the application.
-// function footmarker ( real ) {
-//     var footMark = document.createElement('span');
-//     footMark.className = "prosody-footmarker";
-//     footMark.appendChild(document.createTextNode('|'));
-//     return footMark;
-// }
-
 function placeholder ( real ) {
     return addMarker( real, " " );
 }
-
-
-// function updateHintButton (argument) {
-//     // probably not necessary since hints aren't currently showing up.
-// }
-
-// function popHint (argument) {
-//     // also probably no longer necessary
-// }
-
-// function clickableHintImage (argument) {
-//     // also probably no longer necessary
-// }
-
-// function debug (argument) {
-//     // necessary?
-// }

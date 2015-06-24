@@ -13,6 +13,14 @@ $(document).ready(function(){
     var spacerHeight = titleHeight + 44;
     $('#rhymespacer').height(spacerHeight + 'px');
 
+    // Click handlers for toggles
+    $('#togglestress').click(function(){
+        togglestress(this);
+    });
+    $('#togglefeet').click(function(){
+        togglefeet(this);
+    });
+
     // initialize watch events to toggle the rhymebar
     $('#rhymebar').on('click', function(){
         $('#rhyme').toggle();
@@ -166,26 +174,26 @@ function checkfeet ( lineNumber ) {
     }
 }
 
-// function togglestress () {
-//     // Reproducing this from original js - does this each work? Will test after getting stress marks working
-//     $('.prosody-marker').each(function(el){
-//         if($('#togglestress').val()){
-//             el.show();
-//         } else {
-//             el.hide();
-//         }
-//     });
-// }
+function togglestress ( node ) {
+    $('.prosody-marker').each(function(i, el){
+        if(node.checked){
+            $(el).show();
+        } else {
+            $(el).hide();
+        }
+    });
 
-// function togglefeet (argument) {
-//     $('.prosody-footmarker').each(function(el){
-//         if($('#togglefeet').val()){
-//             el.show();
-//         } else {
-//             el.hide();
-//         }
-//     });
-// }
+}
+
+function togglefeet (node) {
+    $('.prosody-footmarker').each(function(i, el){
+        if(node.checked){
+            $(el).show();
+        } else {
+            $(el).hide();
+        }
+    });
+}
 
 // function togglecaesura (argument) {
 //     $('.caesura').each(function(el){

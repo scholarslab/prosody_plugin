@@ -87,9 +87,9 @@ function switchstress (shadowSyllable) {
 function checkstress ( lineNumber ) {
     // Scheme is the user submitted stress marks
     var scheme = '';
-    $('#prosody-real-' + lineNumber + ' span[real').each(
+    $('#prosody-real-' + lineNumber + ' span[real]').each(
         function () {
-            var syllableStress = $(this).data('stress');
+            var syllableStress = this.dataset.stress;
             scheme += syllableStress;
         }
     );
@@ -98,20 +98,14 @@ function checkstress ( lineNumber ) {
     var answerLength = $('#prosody-real-' + lineNumber + ' span[real]').length;
     var schemeLength = scheme.length;
 
-    // console.log(scheme);
-    // if ( answerLength !== schemeLength ) {
-    //     alert("An answer must be complete to be submitted. Please fill in a symbol over each syllable in this line.");
-    //     return;
-    // } else {
-    //     console.log("answer is fine");
-    // }
+    if ( answerLength !== schemeLength ) {
+        alert("An answer must be complete to be submitted. Please fill in a symbol over each syllable in this line.");
+        return;
+    }
 
     var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
     var realAnswer = answer[0].replace(/-/g, '\u222a');
     var expectedAnswer = answer[1].replace(/-/g, '\u222a');
-
-    console.log(scheme);
-    console.log(realAnswer);
 
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");

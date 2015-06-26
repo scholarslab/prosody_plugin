@@ -46,8 +46,8 @@ function init() {
 
 // switch to .height() (jquery)
     var poemheight = $("poem").getHeight();
-    $('rhymebar').setStyle({height: poemheight + 20 + 'px'});
-    $('rhyme').setStyle({height: poemheight + 20 + 'px'});
+    $('rhymebar').setStyle({height: poemheight + 30 + 'px'});
+    $('rhyme').setStyle({height: poemheight + 30 + 'px'});
 
     // getDimensions is prototype
     var titledim=$('poemtitle').getDimensions();

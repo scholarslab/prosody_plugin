@@ -5,7 +5,7 @@ $(document).ready(function(){
     realSpans.attr('data-stress', '');
 
     var poemHeight = $('#poem').height();
-    var rhymeHeight = poemHeight + 20;
+    var rhymeHeight = poemHeight + 40;
     $('#rhymebar').height(rhymeHeight + 'px');
     $('#rhyme').height(rhymeHeight + 'px');
 
@@ -138,7 +138,10 @@ function checkstress ( lineNumber ) {
 
     var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
     var realAnswer = answer[0].replace(/-/g, '\u222a');
-    var expectedAnswer = answer[1].replace(/-/g, '\u222a');
+    var expectedAnswer;
+    if ( answer[1] && answer[1] !== answer[0] ) {
+        expectedAnswer = answer[1].replace(/-/g, '\u222a');
+    }
 
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");

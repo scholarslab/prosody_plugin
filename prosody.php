@@ -532,12 +532,11 @@ function prosody_poem_resources_meta_box($post=null)
      */
     $value = get_post_meta( $post->ID, 'Resources', true);
 
-    echo '<label for="prosody_poem_resources">';
+    echo '<label for="prosody_poem_resources_editor">';
     __( 'Resources:', 'prosody' );
     echo '</label> ';
-    echo '<input type="textarea" id="prosody_poem_resources" '
-    . 'name="prosody_poem_resources" value="' . esc_attr( $value ) .
-    '" size="50" />';
+    $settings = array( 'textarea_rows' => '15', 'tinymce' => true, 'media_buttons' => true, 'quicktags' => true, 'wpautop' => true );
+    wp_editor( $value, "prosody_poem_resources_editor", $settings );
 }
 
 
@@ -594,12 +593,12 @@ function prosody_poem_resources_save_meta_box_data ($post_id=null)
     /* OK, its safe for us to save the data now. */
 
     // Make sure that it is set.
-    if ( ! isset( $_POST['prosody_poem_resources'] ) ) {
+    if ( ! isset( $_POST['prosody_poem_resources_editor'] ) ) {
         return;
     }
 
     // Sanitize user input. In this case we don't so the html will work.
-    $my_data = $_POST['prosody_poem_resources'];
+    $my_data = $_POST['prosody_poem_resources_editor'];
 
     // Update the meta field in the database.
     update_post_meta( $post_id, 'Resources', $my_data );

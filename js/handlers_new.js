@@ -1,3 +1,9 @@
+// URLS for use throughout file
+var siteUrl = WPURLS.siteurl;
+var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
+var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/incorrect.png";
+var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
+
 $(document).ready(function(){
 
     // Set initial stress to an empty string for all real spans
@@ -5,7 +11,7 @@ $(document).ready(function(){
     realSpans.attr('data-stress', '');
 
     var poemHeight = $('#poem').height();
-    var rhymeHeight = poemHeight + 40;
+    var rhymeHeight = poemHeight + 50;
     $('#rhymebar').height(rhymeHeight + 'px');
     $('#rhyme').height(rhymeHeight + 'px');
 
@@ -72,9 +78,9 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
         console.log("fullscheme: " + fullScheme);
 
         if ( correctAnswer === fullScheme ) {
-            $('#checkmeter' + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+            $('#checkmeter' + lineNumber + " img").attr("src", correctAnswerUrl);
         } else {
-            $('#checkmeter' + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+            $('#checkmeter' + lineNumber + " img").attr("src", incorrectAnswerUrl);
         }
 
         $('#meter-select').dialog( "close" );
@@ -114,7 +120,7 @@ function switchstress (shadowSyllable) {
         $('#' + shadowSyllable.id).fadeIn();
     }
 
-    $('#checkstress' + shadowSyllable.id.substring(15,16) + ' img').attr('src', 'wp-content/plugins/prosody_plugin/images/stress-default.png');
+    $('#checkstress' + shadowSyllable.id.substring(15,16) + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
 }
 
 function checkstress ( lineNumber ) {
@@ -144,11 +150,11 @@ function checkstress ( lineNumber ) {
     }
 
     if ( scheme === realAnswer ) {
-        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+        $("#checkstress" + lineNumber + " img").attr("src", correctAnswerUrl);
     } else if ( scheme === expectedAnswer) {
-        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/expected.png");
+        $("#checkstress" + lineNumber + " img").attr("src", expectedAnswerUrl);
     } else {
-        $("#checkstress" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+        $("#checkstress" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
 }
 
@@ -161,7 +167,7 @@ function switchfoot ( syllableId ) {
         $('#' + syllableId + ' .prosody-footmarker').remove();
     }
 
-    $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", "wp-content/plugins/prosody_plugin/images/feet-default.png");
+    $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", siteUrl + "/wp-content/plugins/prosody_plugin/images/feet-default.png");
 }
 
 function checkfeet ( lineNumber ) {
@@ -174,9 +180,9 @@ function checkfeet ( lineNumber ) {
     answer = answer.replace(/\s+/g, '');
 
     if ( scheme === answer) {
-        $("#checkfeet" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/correct.png");
+        $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);
     } else {
-        $("#checkfeet" + lineNumber + " img").attr("src", "wp-content/plugins/prosody_plugin/images/incorrect.png");
+        $("#checkfeet" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
 }
 

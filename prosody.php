@@ -607,13 +607,17 @@ function prosody_poem_resources_save_meta_box_data ($post_id=null)
 // Enqeue the new javascript
 function prosody_add_handlers ()
 {
-    wp_enqueue_script(
+    wp_register_script(
         'handlers_new.js',
         plugins_url('js/handlers_new.js', __FILE__),
         array(),
         null,
         true
         );
+    // Localize the script to pass in the siteurl
+    wp_localize_script('handlers_new.js', 'WPURLS', array( 'siteurl' => home_url() ));
+    wp_enqueue_script( 'handlers_new.js' );
 }
 
 add_action('wp_enqueue_scripts', 'prosody_add_handlers');
+

@@ -188,7 +188,7 @@ function prosody_poem_author ()
 {
     add_meta_box(
         'prosody_poem_author',
-        __('Author:', 'prosody'),
+        __('Author (Lastname, Firstname):', 'prosody'),
         'prosody_poem_author_meta_box',
         'prosody_poem'
     );
@@ -620,4 +620,3 @@ function prosody_add_handlers ()
 }
 
 add_action('wp_enqueue_scripts', 'prosody_add_handlers');
-

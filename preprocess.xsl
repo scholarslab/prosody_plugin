@@ -21,7 +21,7 @@
             <form name="{$scheme}" id="rhymeform" autocomplete="off">
             <xsl:for-each select="/TEI:TEI/TEI:text/TEI:body/TEI:lg">
                 <xsl:variable name="lgPos"><xsl:value-of select="position()"/></xsl:variable>
-                <br/>
+                <p><br/></p>
                 <xsl:for-each select="TEI:l">
                     <div class="lrhyme">
                         <input size="1" maxlength="1" value="" name="lrhyme-{$lgPos}-{position()}" type="text" onFocus="this.value='';this.style['color'] = '#44FFFF';"/>

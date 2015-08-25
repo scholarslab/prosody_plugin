@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Prosody
- * Plugin URI: https://github.com/csbailey5t/prosody_plugin
+ * Plugin URI: https://github.com/scholarslab/prosody_plugin
  * Description: Provides functionality for For Better for Verse
  * Version: 1.0.0
  * Author: Scholars' Lab, University of Virginia

@@ -2,15 +2,13 @@
 
 /**
  * Plugin Name: Prosody
- * Plugin URI:
- * Description:
- * Version: 0.0.1
+ * Plugin URI: https://github.com/csbailey5t/prosody_plugin
+ * Description: Provides functionality for For Better for Verse
+ * Version: 1.0.0
  * Author: Scholars' Lab, University of Virginia
  * Author URI: http://scholarslab.org
- * Text Domain: Optional.
- * Domain Path: Optional.
- * Network: Optional.
- * License:
+ * License: http://www.apache.org/licenses/LICENSE-2.0.html
+ * Copyright: 2015 Rector and Board of Visitors, University of Virginia
  */
 
 //  Create custom post type for poems

@@ -427,11 +427,16 @@ function prosody_poem_type_meta_box($post=null)
     echo '<option value="blank_verse" ' . selected( $value, 'blank_verse', false ) . '>Blank Verse</option>';
     echo '<option value="cinquain" ' . selected( $value, 'cinquain', false ) . '>Cinquain</option>';
     echo '<option value="couplet" ' . selected( $value, 'couplet', false ) . '>Couplet</option>';
+    echo '<option value="octave" ' . selected( $value, 'octave', false ) . '>Octave</Ode>';
+    echo '<option value="ode" ' . selected( $value, 'ode', false ) . '>Ode</Ode>';
     echo '<option value="quatrain" ' . selected( $value, 'quatrain', false ) . '>Quatrain</option>';
+    echo '<option value="roundel" ' . selected( $value, 'roundel', false ) . '>Roundel</Ode>';
     echo '<option value="sixain" ' . selected( $value, 'sixain', false ) . '>Sixain</option>';
     echo '<option value="song" ' . selected( $value, 'song', false ) . '>Song</option>';
     echo '<option value="sonnet" ' . selected( $value, 'sonnet', false ) . '>Sonnet</option>';
     echo '<option value="spenserian_stanza" ' . selected( $value, 'spenserian_stanza', false ) . '>Spenserian Stanza</option>';
+    echo '<option value="tercet" ' . selected( $value, 'tercet', false ) . '>Tercet</option>';
+    echo '<option value="none" ' . selected( $value, 'none', false ) . '>None</option>';
     echo '</select>';
 }
 

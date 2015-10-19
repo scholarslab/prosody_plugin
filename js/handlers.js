@@ -181,7 +181,8 @@ function checkstress ( lineNumber ) {
 }
 
 function switchfoot ( syllableId ) {
-    var syllableSpan = $('#' + syllableId + ' span');
+
+  var syllableSpan = $('#' + syllableId + ' span');
     if ( syllableSpan.length === 0 ) {
         $('#' + syllableId).append('<span class="prosody-footmarker">|</span>');
         syllableSpan = $('#' + syllableId + ' span');
@@ -197,6 +198,12 @@ function switchfoot ( syllableId ) {
     }
 
     $("#checkfeet" + shadowLineNumberSection + " img").attr("src", siteUrl + "/wp-content/plugins/prosody_plugin/images/feet-default.png");
+
+    var footSyllable = $('#' + syllableId);
+    var footSyllableWidth = footSyllable.width();
+    var footSyllableId = footSyllable.attr('id').substring(13);
+    var footShadowSyllable = $('#prosody-shadow-' + footSyllableId);
+    footShadowSyllable.width(footSyllableWidth);
 }
 
 function checkfeet ( lineNumber ) {

@@ -78,6 +78,9 @@ function checkrhyme (scheme, answer) {
 
 function checkmeter ( lineNumber, lineGroupIndex ) {
     var fullAnswer = $('#prosody-real-' + lineNumber + " span[answer]").attr('answer');
+    if (!fullAnswer) {
+      console.log("There is no answer given for this line.");
+    }
     var footType = fullAnswer.split('(')[0];
     var numberFeet = fullAnswer.match(/\d+/g)[lineGroupIndex-1];
     var correctAnswer = footType + numberFeet;
@@ -132,7 +135,14 @@ function switchstress (shadowSyllable) {
         $('#' + shadowSyllable.id).fadeIn();
     }
 
-    $('#checkstress' + shadowSyllable.id.substring(15,16) + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
+    var digits = /\d+/;
+    var sub = digits.exec(shadowSyllable.id);
+    var shadowLineNumber = '';
+    if (sub !== null) {
+      shadowLineNumber = sub[0];
+    }
+
+    $('#checkstress' + shadowLineNumber + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
 }
 
 function checkstress ( lineNumber ) {
@@ -179,7 +189,14 @@ function switchfoot ( syllableId ) {
         $('#' + syllableId + ' .prosody-footmarker').remove();
     }
 
-    $("#checkfeet" + syllableId.substring(13,14) + " img").attr("src", siteUrl + "/wp-content/plugins/prosody_plugin/images/feet-default.png");
+    var digit_search = /\d+/;
+    var digit_group = digit_search.exec(syllableId);
+    var shadowLineNumberSection = '';
+    if (digit_group !== null) {
+      shadowLineNumberSection = digit_group[0];
+    }
+
+    $("#checkfeet" + shadowLineNumberSection + " img").attr("src", siteUrl + "/wp-content/plugins/prosody_plugin/images/feet-default.png");
 }
 
 function checkfeet ( lineNumber ) {

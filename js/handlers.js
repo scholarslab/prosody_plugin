@@ -274,9 +274,11 @@ function addMarker ( real, symbol ) {
         for (var j = textMiddle - 2; j >= 0; j--) {
             lspacer = lspacer + '\u00A0';
         }
-        prosodyMarker.textContent = lspacer + symbol + lspacer + "\u00A0";
+        // prosodyMarker.textContent = lspacer + symbol + lspacer + "\u00A0";
+        prosodyMarker.textContent = symbol;
     } else {
-        prosodyMarker.textContent = spacer + symbol + spacer;
+        // prosodyMarker.textContent = spacer + symbol + spacer;
+        prosodyMarker.textContent = symbol;
     }
     return prosodyMarker;
 }

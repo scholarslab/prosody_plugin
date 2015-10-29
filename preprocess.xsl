@@ -184,12 +184,13 @@
                                         <xsl:text> </xsl:text>
                                     </xsl:if>
                                     <!-- <span class="prosody-footmarker">|</span> -->
+                                    <xsl:if test="$last-char=' '">
+                                        <xsl:text> </xsl:text>
+                                    </xsl:if>
                                 </span>
                             </xsl:if>
                         </xsl:for-each>
-                        <xsl:if test="$last-char=' '">
-                            <xsl:text> </xsl:text>
-                        </xsl:if>
+
                     </xsl:for-each>
                     <xsl:if test="(name(following-sibling::*[1]) = 'caesura')">
                         <span class="caesura" style="display:none">//</span>

@@ -3,6 +3,8 @@ var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
 var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/incorrect.png";
 var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
+// This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
+var STRESS_WIDTH = 1;
 
 if (!String.prototype.endsWith) {
   String.prototype.endsWith = function(searchString, position) {
@@ -109,8 +111,10 @@ function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
 
+
     var syllableWidth = realSyllable.width();
-    shadowSyllable.style.width = syllableWidth + 'px';
+    // shadowSyllable.style.width = syllableWidth + 'px';
+    shadowSyllable.style.width = (syllableWidth - STRESS_WIDTH) + 'px';
 
     if( stress === '-' || stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();

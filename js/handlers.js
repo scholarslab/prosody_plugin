@@ -33,6 +33,14 @@ $(document).ready(function(){
     var spacerHeight = titleHeight + 44;
     $('#rhymespacer').height(spacerHeight + 'px');
 
+    // Set initial width of shadowsyllables
+    var shadowSyllables = $('.prosody-shadowsyllable');
+    shadowSyllables.each(function (i) {
+        var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
+        var correspondingRealSyllableWidth = correspondingRealSyllable.width();
+        shadowSyllables[i].style.width = correspondingRealSyllableWidth + 'px';
+    });
+
     // Click handlers for toggles
     $('#togglestress').click(function(){
         togglestress(this);
@@ -112,7 +120,7 @@ function switchstress (shadowSyllable) {
     var stress = realSyllable.attr('data-stress');
 
     var syllableWidth = realSyllable.width();
-    shadowSyllable.style.width = syllableWidth + 'px';
+    // shadowSyllable.style.width = syllableWidth + 'px';
     // shadowSyllable.style.width = (syllableWidth - STRESS_WIDTH) + 'px';
 
     if( stress === '-' || stress === '' ) {

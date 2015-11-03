@@ -180,12 +180,24 @@
                                     <xsl:copy-of select="text()"/>
                                     <!-- add space back -->
 
-                                    <xsl:if test="not(position()=last())">
+                                    <xsl:choose>
+                                      <xsl:when test="not(position()=last()) and $last-char=' '">
                                         <xsl:text> </xsl:text>
+                                      </xsl:when>
+                                      <xsl:when test="not(position()=last())">
+                                        <xsl:text> </xsl:text>
+                                      </xsl:when>
+                                      <xsl:when test="$last-char=' '">
+                                        <xsl:text> </xsl:text>
+                                      </xsl:when>
+                                    </xsl:choose>
+
+                                    <xsl:if test="not(position()=last())">
+                                        <!-- <xsl:text>A</xsl:text> -->
                                     </xsl:if>
                                     <!-- <span class="prosody-footmarker">|</span> -->
                                     <xsl:if test="$last-char=' '">
-                                        <xsl:text> </xsl:text>
+                                        <!-- <xsl:text>F</xsl:text> -->
                                     </xsl:if>
                                 </span>
                             </xsl:if>

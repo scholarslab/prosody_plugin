@@ -111,10 +111,9 @@ function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
 
-
     var syllableWidth = realSyllable.width();
-    // shadowSyllable.style.width = syllableWidth + 'px';
-    shadowSyllable.style.width = (syllableWidth - STRESS_WIDTH) + 'px';
+    shadowSyllable.style.width = syllableWidth + 'px';
+    // shadowSyllable.style.width = (syllableWidth - STRESS_WIDTH) + 'px';
 
     if( stress === '-' || stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();

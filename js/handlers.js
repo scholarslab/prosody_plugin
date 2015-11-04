@@ -217,7 +217,9 @@ function switchfoot ( syllableId ) {
     var footSyllableWidth = footSyllable.width();
     var footSyllableId = footSyllable.attr('id').substring(13);
     var footShadowSyllable = $('#prosody-shadow-' + footSyllableId);
-    footShadowSyllable.width(footSyllableWidth);
+    setTimeout(function(){
+      footShadowSyllable.width(footSyllableWidth - STRESS_WIDTH);
+    }, 500);
 }
 
 function checkfeet ( lineNumber ) {

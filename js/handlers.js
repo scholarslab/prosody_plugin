@@ -43,6 +43,8 @@ $(document).ready(function(){
         var correspondingRealSyllableWidth = correspondingRealSyllable.width();
         var adjustedWidth = correspondingRealSyllableWidth - STRESS_WIDTH;
         shadowSyllables[i].style.width = adjustedWidth + 'px';
+        console.log("corresponding: " + correspondingRealSyllableWidth);
+        console.log('adjustedWidth: ' + adjustedWidth);
     });
 
     // Click handlers for toggles

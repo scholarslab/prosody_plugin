@@ -5,9 +5,9 @@ var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/in
 var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
 // This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
 var STRESS_WIDTH = 1;
-if (navigator.appVersion.indexOf("Win")!=-1) {
-  STRESS_WIDTH = 0;
-}
+// if (navigator.appVersion.indexOf("Win")!=-1) {
+//   STRESS_WIDTH = 0;
+// }
 
 if (!String.prototype.endsWith) {
   String.prototype.endsWith = function(searchString, position) {

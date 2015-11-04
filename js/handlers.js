@@ -38,7 +38,8 @@ $(document).ready(function(){
     shadowSyllables.each(function (i) {
         var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
         var correspondingRealSyllableWidth = correspondingRealSyllable.width();
-        shadowSyllables[i].style.width = correspondingRealSyllableWidth + 'px';
+        var adjustedWidth = correspondingRealSyllableWidth - STRESS_WIDTH;
+        shadowSyllables[i].style.width = adjustedWidth + 'px';
     });
 
     // Click handlers for toggles

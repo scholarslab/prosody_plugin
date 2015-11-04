@@ -219,7 +219,7 @@ function switchfoot ( syllableId ) {
     var footShadowSyllable = $('#prosody-shadow-' + footSyllableId);
     setTimeout(function(){
       footShadowSyllable.width(footSyllableWidth - STRESS_WIDTH);
-    }, 500);
+    }, 100);
 }
 
 function checkfeet ( lineNumber ) {

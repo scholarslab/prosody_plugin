@@ -4,7 +4,7 @@ var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/corr
 var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/incorrect.png";
 var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
 // This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
-var STRESS_WIDTH = 0.1;
+var STRESS_WIDTH = 0;
 if (navigator.appVersion.indexOf("Win")!=-1) {
   STRESS_WIDTH = 0;
 }
@@ -40,7 +40,7 @@ $(document).ready(function(){
     var shadowSyllables = $('.prosody-shadowsyllable');
     shadowSyllables.each(function (i) {
         var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
-        var correspondingRealSyllableWidth = correspondingRealSyllable.width();
+        var correspondingRealSyllableWidth = correspondingRealSyllable.innerWidth();
         var adjustedWidth = correspondingRealSyllableWidth - STRESS_WIDTH;
         shadowSyllables[i].style.width = adjustedWidth + 'px';
         console.log("corresponding: " + correspondingRealSyllableWidth);

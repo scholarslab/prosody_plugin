@@ -237,9 +237,6 @@ function checkfeet ( lineNumber ) {
     // Force the answer to use the same html entity that the scheme does for apostrophe
     answer = answer.replace(/\'/g, rightSingleQuote);
 
-    console.log("scheme: " + scheme);
-    console.log("answer: " + answer);
-
     if ( scheme === answer) {
         $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);
     } else {

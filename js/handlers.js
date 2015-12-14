@@ -228,8 +228,17 @@ function checkfeet ( lineNumber ) {
     if ( scheme.endsWith('|')) {
         scheme = scheme.slice(0, -1);
     }
+
+    rightSingleQuote = decodeEntities('&#8217;');
+
     scheme = scheme.replace(/\s+/g, '');
     answer = answer.replace(/\s+/g, '');
+
+    // Force the answer to use the same html entity that the scheme does for apostrophe
+    answer = answer.replace(/\'/g, rightSingleQuote);
+
+    console.log("scheme: " + scheme);
+    console.log("answer: " + answer);
 
     if ( scheme === answer) {
         $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);
@@ -309,4 +318,10 @@ function slackmarker ( real ) {
 
 function placeholder ( real ) {
     return addMarker( real, " " );
+}
+
+function decodeEntities (encodedString) {
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = encodedString;
+  return textArea.value;
 }

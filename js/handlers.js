@@ -54,6 +54,9 @@ $(document).ready(function(){
     $('#togglecaesura').click(function(){
         togglecaesura(this);
     });
+    $('#togglediscrepancies').click(function(){
+      toggledifferences(this);
+    });
 
     // initialize watch events to toggle the rhymebar
     $('#rhymebar').on('click', function(){
@@ -273,6 +276,17 @@ function togglecaesura (node) {
             $(el).hide();
         }
     });
+}
+
+function toggledifferences (e) {
+  console.log(e);
+    if (e.value == "off"){
+      $('span[discrepant]').addClass('discrep');
+      e.value = "on";
+    } else if (e.value == "on"){
+      $('span[discrepant]').removeClass('discrep');
+      e.value = "off";
+    }
 }
 
 function addMarker ( real, symbol ) {

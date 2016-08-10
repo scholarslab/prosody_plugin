@@ -58,6 +58,9 @@ $(document).ready(function(){
       toggledifferences(this);
     });
 
+    // Hide the syncopation checkbox
+    $('#syncopation').hide();
+
     // initialize watch events to toggle the rhymebar
     $('#rhymebar').on('click', function(){
         $('#rhyme').toggle();
@@ -119,6 +122,7 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
 
     $('#meter-select').dialog( "open" );
 
+    showSyncopation();
 }
 
 function switchstress (shadowSyllable) {
@@ -195,6 +199,18 @@ function checkstress ( lineNumber ) {
     } else {
         $("#checkstress" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
+
+    showSyncopation();
+}
+
+function showSyncopation() {
+  var corrects = $('img[src$="correct.png"]');
+  var numLines = $('.prosody-line');
+  if (corrects.length === numLines.length * 3){
+    $('#syncopation').show();
+  } else if (corrects.length !== numLines.length){
+    $('#syncopation').hide();
+  }
 }
 
 function switchfoot ( syllableId ) {
@@ -245,6 +261,8 @@ function checkfeet ( lineNumber ) {
     } else {
         $("#checkfeet" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
+
+    showSyncopation();
 }
 
 function togglestress ( node ) {
@@ -278,14 +296,12 @@ function togglecaesura (node) {
     });
 }
 
-function toggledifferences (e) {
-  console.log(e);
-    if (e.value == "off"){
+function toggledifferences (node) {
+    console.log(node);
+    if (node.checked){
       $('span[discrepant]').addClass('discrep');
-      e.value = "on";
-    } else if (e.value == "on"){
+    } else {
       $('span[discrepant]').removeClass('discrep');
-      e.value = "off";
     }
 }
 

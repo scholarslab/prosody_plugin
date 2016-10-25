@@ -54,6 +54,12 @@ $(document).ready(function(){
     $('#togglecaesura').click(function(){
         togglecaesura(this);
     });
+    $('#togglediscrepancies').click(function(){
+      toggledifferences(this);
+    });
+
+    // Hide the syncopation checkbox
+    $('#syncopation').hide();
 
     // initialize watch events to toggle the rhymebar
     $('#rhymebar').on('click', function(){
@@ -75,6 +81,7 @@ $(document).ready(function(){
         checkrhyme(scheme, ans);
         event.preventDefault();
     });
+
 });
 
 function checkrhyme (scheme, answer) {
@@ -112,6 +119,7 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
         }
 
         $('#meter-select').dialog( "close" );
+      showSyncopation();
     });
 
     $('#meter-select').dialog( "open" );
@@ -192,6 +200,18 @@ function checkstress ( lineNumber ) {
     } else {
         $("#checkstress" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
+
+    showSyncopation();
+}
+
+function showSyncopation() {
+  var corrects = $('img[src$="correct.png"]');
+  var numLines = $('.prosody-line');
+  if (corrects.length === numLines.length * 3){
+    $('#syncopation').show();
+  } else if (corrects.length !== numLines.length){
+    $('#syncopation').hide();
+  }
 }
 
 function switchfoot ( syllableId ) {
@@ -242,6 +262,8 @@ function checkfeet ( lineNumber ) {
     } else {
         $("#checkfeet" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
+
+    showSyncopation();
 }
 
 function togglestress ( node ) {
@@ -273,6 +295,15 @@ function togglecaesura (node) {
             $(el).hide();
         }
     });
+}
+
+function toggledifferences (node) {
+    console.log(node);
+    if (node.checked){
+      $('span[discrepant]').addClass('discrep');
+    } else {
+      $('span[discrepant]').removeClass('discrep');
+    }
 }
 
 function addMarker ( real, symbol ) {

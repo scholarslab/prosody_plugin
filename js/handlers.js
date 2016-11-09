@@ -256,6 +256,12 @@ function checkfeet ( lineNumber ) {
 
     // Force the answer to use the same html entity that the scheme does for apostrophe
     answer = answer.replace(/\'/g, rightSingleQuote);
+ 
+    // replace the double dash with an en dash
+    answer = answer.replace(/--/g, '–');
+    // remove all quotes, straight and curly
+    answer = answer.replace(/[\u2018\u2019]/g, "").replace(/[\u201C\u201D]/g, '').replace(/['"]/g, "");
+    scheme = scheme.replace(/[\u2018\u2019]/g, "").replace(/[\u201C\u201D]/g, '').replace(/['"]/g, "");
 
     if ( scheme === answer) {
         $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);

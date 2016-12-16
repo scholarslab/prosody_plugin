@@ -188,6 +188,8 @@ function checkstress ( lineNumber ) {
 
     var answer = $('#prosody-real-' + lineNumber).data('real').split('|');
     var realAnswer = answer[0].replace(/-/g, '\u222a');
+    // Remove the parentheses that some poems have for optional stress marks
+    var realAnswer = realAnswer.replace(/\(|\)/g, '');
     var expectedAnswer;
     if ( answer[1] && answer[1] !== answer[0] ) {
         expectedAnswer = answer[1].replace(/-/g, '\u222a');
@@ -195,6 +197,7 @@ function checkstress ( lineNumber ) {
 
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", correctAnswerUrl);
+        showNote(lineNumber);
     } else if ( scheme === expectedAnswer) {
         $("#checkstress" + lineNumber + " img").attr("src", expectedAnswerUrl);
     } else {
@@ -202,6 +205,16 @@ function checkstress ( lineNumber ) {
     }
 
     showSyncopation();
+
+    // Show notes if there are any
+    $('#displaynotebutton' + lineNumber).click(function(){
+        $('#hintfor' + lineNumber).hide();
+        togglenote(lineNumber);
+    });
+}
+
+function showNote(lineNumber) {
+  $("#displaynotebutton" + lineNumber).show();
 }
 
 function showSyncopation() {
@@ -270,6 +283,16 @@ function checkfeet ( lineNumber ) {
     }
 
     showSyncopation();
+}
+
+function togglenote(lineNumber) {
+  if($('#hintfor' + lineNumber).css('display') == 'none'){
+    $('#hintfor' + lineNumber).dialog();
+    $('#hintfor' + lineNumber).show();
+  } else {
+    $('#hintfor' + lineNumber).dialog('close');
+    $('#hintfor' + lineNumber).hide();
+  }
 }
 
 function togglestress ( node ) {

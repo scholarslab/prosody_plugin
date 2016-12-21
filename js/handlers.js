@@ -222,7 +222,6 @@ function showSyncopation() {
   var corrects = $('img[src$="correct.png"]');
   var expecteds = $('img[src$="expected.png"]');
   var totalCorrect = corrects.length + expecteds.length;
-  console.log(totalCorrect);
   var numLines = $('.prosody-line');
   if (totalCorrect === numLines.length * 3){
     $('#syncopation').show();

@@ -215,7 +215,7 @@
                     <span class="button">
                         <button class="prosody-note-button" id="displaynotebutton{$line-number}"
                             name="Note about this line" onclick="">
-                            <img src="[PLUGIN_DIR]/blank.gif"/>
+                            <img src="[PLUGIN_DIR]/note.png"/>
                         </button>
                         <p class="prosody-note" id="hintfor{$line-number}">
                             <span>Note on line <xsl:value-of select="$line-number"/>:</span>

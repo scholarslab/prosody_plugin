@@ -104,13 +104,11 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
     var footType = fullAnswer.split('(')[0];
     var numberFeet = fullAnswer.match(/\d+/g)[lineGroupIndex-1];
     var correctAnswer = footType + numberFeet;
-    console.log("real answer is: " + correctAnswer);
 
     $('#check-answer').one("click", function () {
         var footScheme = $('#foot-select').val();
         var numberScheme = $('#number-select').val();
         var fullScheme = footScheme + numberScheme;
-        console.log("fullscheme: " + fullScheme);
 
         if ( correctAnswer === fullScheme ) {
             $('#checkmeter' + lineNumber + " img").attr("src", correctAnswerUrl);
@@ -191,15 +189,18 @@ function checkstress ( lineNumber ) {
     // Remove the parentheses that some poems have for optional stress marks
     var realAnswer = realAnswer.replace(/\(|\)/g, '');
     var expectedAnswer;
+    // if answer[1] exists, and answer[1] does not equal answer[0]
     if ( answer[1] && answer[1] !== answer[0] ) {
         expectedAnswer = answer[1].replace(/-/g, '\u222a');
     }
 
+    
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", correctAnswerUrl);
         showNote(lineNumber);
     } else if ( scheme === expectedAnswer) {
         $("#checkstress" + lineNumber + " img").attr("src", expectedAnswerUrl);
+        showNote(lineNumber);
     } else {
         $("#checkstress" + lineNumber + " img").attr("src", incorrectAnswerUrl);
     }
@@ -219,10 +220,13 @@ function showNote(lineNumber) {
 
 function showSyncopation() {
   var corrects = $('img[src$="correct.png"]');
+  var expecteds = $('img[src$="expected.png"]');
+  var totalCorrect = corrects.length + expecteds.length;
+  console.log(totalCorrect);
   var numLines = $('.prosody-line');
-  if (corrects.length === numLines.length * 3){
+  if (totalCorrect === numLines.length * 3){
     $('#syncopation').show();
-  } else if (corrects.length !== numLines.length){
+  } else if (totalCorrect !== numLines.length){
     $('#syncopation').hide();
   }
 }
@@ -327,7 +331,6 @@ function togglecaesura (node) {
 }
 
 function toggledifferences (node) {
-    console.log(node);
     if (node.checked){
       $('span[discrepant]').addClass('discrep');
     } else {

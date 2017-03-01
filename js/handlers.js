@@ -39,8 +39,7 @@ $(document).ready(function(){
       shadowSyllables.each(function (i) {
           var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
           var correspondingRealSyllableWidth = correspondingRealSyllable.innerWidth();
-          var adjustedWidth = correspondingRealSyllableWidth - STRESS_WIDTH;
-          shadowSyllables[i].style.width = adjustedWidth + 'px';
+          shadowSyllables[i].style.width = correspondingRealSyllableWidth + 'px';
       });
     }, 500);
 
@@ -127,10 +126,6 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
 function switchstress (shadowSyllable) {
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
-
-    var syllableWidth = realSyllable.width();
-    // shadowSyllable.style.width = syllableWidth + 'px';
-    // shadowSyllable.style.width = (syllableWidth - STRESS_WIDTH) + 'px';
 
     if( stress === '-' || stress === '' ) {
         $('#' + shadowSyllable.id).fadeIn();
@@ -265,19 +260,9 @@ function checkfeet ( lineNumber ) {
         scheme = scheme.slice(0, -1);
     }
 
-    rightSingleQuote = decodeEntities('&#8217;');
-
-    scheme = scheme.replace(/\s+/g, '');
-    answer = answer.replace(/\s+/g, '');
-
-    // Force the answer to use the same html entity that the scheme does for apostrophe
-    answer = answer.replace(/\'/g, rightSingleQuote);
- 
-    // replace the double dash with an en dash
-    answer = answer.replace(/--/g, '–');
-    // remove all quotes, straight and curly
-    answer = answer.replace(/[\u2018\u2019]/g, "").replace(/[\u201C\u201D]/g, '').replace(/['"]/g, "");
-    scheme = scheme.replace(/[\u2018\u2019]/g, "").replace(/[\u201C\u201D]/g, '').replace(/['"]/g, "");
+   // remove everything but words, numbers and pipe
+    answer = answer.replace(/[^\w|]/g, '');
+    scheme = scheme.replace(/[^\w|]/g, '');
 
     if ( scheme === answer) {
         $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);
@@ -341,29 +326,7 @@ function addMarker ( real, symbol ) {
     var prosodyMarker = document.createElement("span");
     prosodyMarker.className = "prosody-marker";
 
-    var syllableText = real.text();
-
-    var textLength = syllableText.length;
-    var textMiddle = Math.floor(textLength/2);
-
-    var textMod = textLength % 2;
-    var spacer = '';
-
-    for (var i = textMiddle - 1; i >= 0; i--) {
-        spacer = spacer + '\u00A0';
-    }
-
-    if ( textMod === 0) {
-        var lspacer = '';
-        for (var j = textMiddle - 2; j >= 0; j--) {
-            lspacer = lspacer + '\u00A0';
-        }
-        prosodyMarker.textContent = lspacer + symbol + lspacer + "\u00A0";
-        // prosodyMarker.textContent = symbol;
-    } else {
-        prosodyMarker.textContent = spacer + symbol + spacer;
-        // prosodyMarker.textContent = symbol;
-    }
+    prosodyMarker.textContent = symbol;
     return prosodyMarker;
 }
 

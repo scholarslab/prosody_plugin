@@ -24,7 +24,8 @@ function prosody_create_post_type ()
             ),
             'public' => true,
             'has_archive' => true,
-            'taxonomies' => array('category')
+            'taxonomies' => array('category'),
+            'supports' => array('title', 'editor', 'revisions')
         )
     );
 }

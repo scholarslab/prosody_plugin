@@ -214,8 +214,8 @@ function showNote(lineNumber) {
 }
 
 function showSyncopation() {
-  var corrects = $('img[src$="correct.png"]');
-  var expecteds = $('img[src$="expected.png"]');
+  var corrects = $('img[src$="images/correct.png"]');
+  var expecteds = $('img[src$="images/expected.png"]');
   var totalCorrect = corrects.length + expecteds.length;
   var numLines = $('.prosody-line');
   if (totalCorrect === numLines.length * 3){

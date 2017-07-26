@@ -274,7 +274,7 @@ function checkfeet ( lineNumber ) {
 }
 
 function togglenote(lineNumber) {
-  if($('#hintfor' + lineNumber).css('display') == 'none'){
+  if($('#hintfor' + lineNumber).css('display') === 'none'){
     $('#hintfor' + lineNumber).dialog();
     $('#hintfor' + lineNumber).show();
   } else {

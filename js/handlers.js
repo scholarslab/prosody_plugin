@@ -1,3 +1,6 @@
+/*globals
+    $, document, console, alert, setTimeout, WPURLS
+*/
 // URLS for use throughout file
 var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";

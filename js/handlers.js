@@ -6,6 +6,9 @@ var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/exp
 // This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
 var STRESS_WIDTH = 1;
 
+/* This is the array that will hold the correction state of line features */
+var lineStates = [];
+
 if (!String.prototype.endsWith) {
   String.prototype.endsWith = function(searchString, position) {
       var subjectString = this.toString();
@@ -81,7 +84,40 @@ $(document).ready(function(){
         event.preventDefault();
     });
 
+    /* Populate the line state array with base correction states */
+    $('.prosody-line').each(function(index) {
+        lineStates[index] = {
+            rhyme: false,
+            meter: false,
+            feet: false,
+        };
+    });
+
 });
+
+var getLineFeatureState = function(lineNumber, feature) {
+    if (lineStates && lineStates[lineNumber-1]) {
+        if (undefined !== lineStates[lineNumber-1][feature]) {
+            return lineStates[lineNumber-1][feature];
+        } else {
+            setLineFeatureState(lineNumber, feature, false);
+            return false;
+        }
+    } else {
+        console.error('Cannot read state for Line ' + (lineNumber-1) + '.');
+        return false;
+    }
+}
+var setLineFeatureState = function(lineNumber, feature, state) {
+    if (lineStates && lineStates[lineNumber-1]) {
+        lineStates[lineNumber-1][feature] = state;
+        if (state === true) { // check if Note needs to be shown
+            showNote(lineNumber);
+        }
+    } else {
+        console.error('Cannot read state for Line ' + (lineNumber-1) + '.');
+    }
+}
 
 function checkrhyme (scheme, answer) {
     if (scheme === answer) {
@@ -105,22 +141,26 @@ function checkmeter ( lineNumber, lineGroupIndex ) {
     var correctAnswer = footType + numberFeet;
 
     $('#check-answer').one("click", function () {
+        var feature = 'meter';
+        var meterCorrect = getLineFeatureState(lineNumber, feature);
         var footScheme = $('#foot-select').val();
         var numberScheme = $('#number-select').val();
         var fullScheme = footScheme + numberScheme;
 
         if ( correctAnswer === fullScheme ) {
             $('#checkmeter' + lineNumber + " img").attr("src", correctAnswerUrl);
+            meterCorrect = true;
         } else {
             $('#checkmeter' + lineNumber + " img").attr("src", incorrectAnswerUrl);
+            meterCorrect = false;
         }
 
         $('#meter-select').dialog( "close" );
-      showSyncopation();
+        showSyncopation();
+        setLineFeatureState(lineNumber, feature, meterCorrect);
     });
 
     $('#meter-select').dialog( "open" );
-
 }
 
 function switchstress (shadowSyllable) {
@@ -161,6 +201,8 @@ function switchstress (shadowSyllable) {
 }
 
 function checkstress ( lineNumber ) {
+    var feature = 'stress';
+    var stressCorrect = getLineFeatureState(lineNumber, feature);
     // Scheme is the user submitted stress marks
     var scheme = '';
     $('#prosody-real-' + lineNumber + ' span[real]').each(
@@ -176,6 +218,7 @@ function checkstress ( lineNumber ) {
 
     if ( answerLength !== schemeLength ) {
         alert("An answer must be complete to be submitted. Please fill in a symbol over each syllable in this line.");
+        setLineFeatureState(lineNumber, feature, false);
         return;
     }
 
@@ -192,25 +235,35 @@ function checkstress ( lineNumber ) {
     
     if ( scheme === realAnswer ) {
         $("#checkstress" + lineNumber + " img").attr("src", correctAnswerUrl);
-        showNote(lineNumber);
+        stressCorrect = true;
+        // showNote(lineNumber);
     } else if ( scheme === expectedAnswer) {
         $("#checkstress" + lineNumber + " img").attr("src", expectedAnswerUrl);
-        showNote(lineNumber);
+        stressCorrect = true;
+        // showNote(lineNumber);
     } else {
         $("#checkstress" + lineNumber + " img").attr("src", incorrectAnswerUrl);
+        stressCorrect = false;
     }
 
+    setLineFeatureState(lineNumber, feature, stressCorrect);
     showSyncopation();
 
-    // Show notes if there are any
-    $('#displaynotebutton' + lineNumber).click(function(){
-        $('#hintfor' + lineNumber).hide();
-        togglenote(lineNumber);
-    });
+}
+
+function verifyShowNote(lineNumber) {
+    var criteria = ['stress', 'meter', 'feet'];
+    var verified = criteria.filter((feature) => lineStates[lineNumber-1][feature]); // filter out the features that are not set to "true"
+    return criteria.length === verified.length;
 }
 
 function showNote(lineNumber) {
-  $("#displaynotebutton" + lineNumber).show();
+    if (verifyShowNote(lineNumber)) {
+        $("#displaynotebutton" + lineNumber).show().click(function(){
+            $('#hintfor' + lineNumber).hide();
+            togglenote(lineNumber);
+        });
+    }
 }
 
 function showSyncopation() {
@@ -254,6 +307,8 @@ function switchfoot ( syllableId ) {
 }
 
 function checkfeet ( lineNumber ) {
+    var feature = 'feet';
+    var feetCorrect = getLineFeatureState(lineNumber, feature);
     var scheme = $('#prosody-real-' + lineNumber + ' span[real]').text();
     var answer = $('#prosody-real-' + lineNumber).data('feet');
     if ( scheme.endsWith('|')) {
@@ -266,9 +321,12 @@ function checkfeet ( lineNumber ) {
 
     if ( scheme === answer) {
         $("#checkfeet" + lineNumber + " img").attr("src", correctAnswerUrl);
+        feetCorrect = true;
     } else {
         $("#checkfeet" + lineNumber + " img").attr("src", incorrectAnswerUrl);
+        feetCorrect = false;
     }
+    setLineFeatureState(lineNumber, feature, feetCorrect)
 
     showSyncopation();
 }

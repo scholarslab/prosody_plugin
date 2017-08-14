@@ -1,3 +1,7 @@
+/*globals
+    WPURLS
+*/
+/*jshint browser: true, jquery: true, devel: true */
 // URLS for use throughout file
 var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
@@ -274,7 +278,7 @@ function checkfeet ( lineNumber ) {
 }
 
 function togglenote(lineNumber) {
-  if($('#hintfor' + lineNumber).css('display') == 'none'){
+  if($('#hintfor' + lineNumber).css('display') === 'none'){
     $('#hintfor' + lineNumber).dialog();
     $('#hintfor' + lineNumber).show();
   } else {

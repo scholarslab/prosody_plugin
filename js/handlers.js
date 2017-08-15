@@ -2,6 +2,7 @@
     WPURLS
 */
 /*jshint browser: true, jquery: true, devel: true */
+/*jshint esversion: 6 */
 // URLS for use throughout file
 var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
@@ -99,6 +100,17 @@ $(document).ready(function() {
 
 });
 
+var setLineFeatureState = function(lineNumber, feature, state) {
+    if (lineStates && lineStates[lineNumber - 1]) {
+        lineStates[lineNumber - 1][feature] = state;
+        if (state === true) { // check if Note needs to be shown
+            showNote(lineNumber);
+        }
+    } else {
+        console.error('Cannot read state for Line ' + (lineNumber - 1) + '.');
+    }
+};
+
 var getLineFeatureState = function(lineNumber, feature) {
     if (lineStates && lineStates[lineNumber - 1]) {
         if (undefined !== lineStates[lineNumber - 1][feature]) {
@@ -111,18 +123,7 @@ var getLineFeatureState = function(lineNumber, feature) {
         console.error('Cannot read state for Line ' + (lineNumber - 1) + '.');
         return false;
     }
-}
-var setLineFeatureState = function(lineNumber, feature, state) {
-    if (lineStates && lineStates[lineNumber - 1]) {
-        lineStates[lineNumber - 1][feature] = state;
-        if (state === true) { // check if Note needs to be shown
-            showNote(lineNumber);
-        }
-    } else {
-        console.error('Cannot read state for Line ' + (lineNumber - 1) + '.');
-    }
-}
-
+};
 function checkrhyme(scheme, answer) {
     if (scheme === answer) {
         $('#rhymecheck').addClass('right');
@@ -330,7 +331,7 @@ function checkfeet(lineNumber) {
         $("#checkfeet" + lineNumber + " img").attr("src", incorrectAnswerUrl);
         feetCorrect = false;
     }
-    setLineFeatureState(lineNumber, feature, feetCorrect)
+    setLineFeatureState(lineNumber, feature, feetCorrect);
 
     showSyncopation();
 }

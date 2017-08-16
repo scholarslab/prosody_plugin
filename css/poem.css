@@ -1,0 +1,233 @@
+div.prosody-shadowline {
+  display: table-row;
+  height: 18px;
+}
+span:hover {
+  background: #444;
+}
+span.prosody-shadowsyllable {
+  display: inline-block;
+  empty-cells: show;
+  text-align: center;
+  font-size: 13px;
+  color: #deb887;
+  vertical-align: bottom;
+  height: 18px;
+}
+span.prosody-syllable {
+  white-space: pre;
+  vertical-align: bottom;
+}
+span.prosody-marker {
+  visibility: visible;
+  white-space: pre;
+}
+span.prosody-footmarker {
+  color: #deb887;
+  font-weight: bold;
+  vertical-align: bottom;
+  width: 1ex;
+}
+span.prosody-placeholder {
+  visibility: hidden;
+  white-space: pre;
+}
+span.prosody-checkstress {
+  display: table-cell;
+}
+span.prosody-checkfeet {
+  display: table-cell;
+}
+span.caesura:hover {
+  background: transparent;
+}
+.caesura {
+  color: #a5a;
+  font-weight: bold;
+  padding: 0 1ex 0 0;
+  vertical-align: bottom;
+  font-size: 13px;
+  empty-cells: show;
+  text-align: center;
+}
+.prosody-shadowline .caesura {
+  visibility: hidden;
+  height: 18px;
+}
+p.prosody-note {
+  display: none;
+  color: #ddd;
+  font-size: 1.4em;
+  line-height: 1.5;
+}
+p.prosody-note-show {
+  font-size: 12px;
+  margin: 15px;
+}
+#poem #poemtitle {
+  margin: 10px 0 15px 0;
+}
+#poem #poemtitle h2 {
+  padding-bottom: 10px;
+  line-height: 1em;
+}
+#poem span.button {
+  word-spacing: 0;
+  letter-spacing: 0;
+}
+#poem span.button:hover {
+  background: none;
+}
+#poem .button button {
+  width: 18px;
+}
+.buttons {
+  float: right;
+  margin-top: -1em;
+}
+button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+button img {
+  vertical-align: middle;
+}
+label {
+  vertical-align: bottom;
+  margin-left: -7px;
+}
+#meter-select {
+  margin: 10px;
+}
+#meter-select label {
+  margin: 5px 0;
+}
+#meter-select select {
+  margin: 5px 0;
+}
+#meter-select option {
+  padding: 2px 5px;
+}
+#meter-select button {
+  background: #444;
+  padding: 4px;
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}
+#meter-select button:hover {
+  background: #858575;
+}
+#utils {
+  background: #666;
+  color: #fff;
+  margin-right: -10px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  float: right;
+  bottom: 0;
+  right: 10px;
+}
+#utils button {
+  margin: 0 auto;
+}
+.inner-util {
+  font-size: 1.2em;
+  background: #444;
+  width: 440px;
+  float: right;
+  height: 23px;
+  padding-top: 5px;
+  padding-left: 10px;
+  text-align: left;
+}
+.discrep {
+  color: #f0f055 !important;
+}
+small.date {
+  padding-left: 1.5em;
+  font-size: 12px;
+  vertical-align: middle;
+}
+#rhymebar {
+  height: 0;
+  background: #999;
+  float: left;
+  width: 7px;
+  cursor: pointer;
+  border-right: 1px solid #cfcfcf;
+}
+#rhymebar:hover {
+  background: #ddd;
+}
+#rhyme {
+  height: 0;
+  width: 25px;
+  float: left;
+  background: #444;
+}
+#rhyme .lrhyme {
+  height: 30px;
+  padding: 0 4px;
+}
+#rhyme .check {
+  padding: 0 3px !important;
+}
+#rhyme input {
+  background: #656565;
+  height: 16px;
+  width: 14px;
+  margin: 0;
+  padding: 0 2px;
+  border: 0;
+  color: #fff;
+  font-size: 11px;
+}
+#rhyme input:hover {
+  background: #888;
+}
+#rhyme input#rhymecheck {
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  background: #999;
+  color: #222;
+}
+#rhyme input#rhymecheck:hover {
+  background: #ddd;
+}
+#rhyme input#rhymecheck.right {
+  background: #32cd32;
+}
+#rhyme input#rhymecheck.wrong {
+  background: #b22222;
+}
+#rhymeflag {
+  clear: both;
+  float: left;
+  width: 32px;
+  background: #999;
+  border-right: 1px solid #cfcfcf;
+  color: #444;
+  padding: 1px;
+  cursor: pointer;
+  font-size: 9px;
+}
+#rhymeflag:hover {
+  background: #fff;
+}
+#rhymeform p {
+  height: 16px;
+}
+#rhymeform p:first-child {
+  height: inherit;
+}
+.indent {
+  padding-left: 1em;
+}
+.indent2 {
+  padding-left: 2em;
+}

@@ -608,9 +608,18 @@ function prosody_poem_resources_save_meta_box_data ($post_id=null)
     update_post_meta( $post_id, 'Resources', $my_data );
 }
 
-// Enqeue the new javascript
-function prosody_add_handlers ()
+// Enqeue the js and css
+function prosody_plugin_queue_scripts ()
 {
+
+    wp_enqueue_style(
+        'poem-css',
+        plugin_dir_url( __FILE__ ) . 'css/poem.css',
+        array(),
+        null,
+        false
+        );
+
     wp_register_script(
         'handlers.js',
         plugins_url('js/handlers.js', __FILE__),
@@ -623,7 +632,7 @@ function prosody_add_handlers ()
     wp_enqueue_script( 'handlers.js' );
 }
 
-add_action('wp_enqueue_scripts', 'prosody_add_handlers');
+add_action('wp_enqueue_scripts', 'prosody_plugin_queue_scripts');
 
 function prosody_direction_widget ()
 {

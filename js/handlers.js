@@ -14,92 +14,6 @@ var STRESS_WIDTH = 1;
 /* This is the array that will hold the correction state of line features */
 var lineStates = [];
 
-if (!String.prototype.endsWith) {
-    String.prototype.endsWith = function(searchString, position) {
-        var subjectString = this.toString();
-        if (position === undefined || position > subjectString.length) {
-            position = subjectString.length;
-        }
-        position -= searchString.length;
-        var lastIndex = subjectString.indexOf(searchString, position);
-        return lastIndex !== -1 && lastIndex === position;
-    };
-}
-
-$(document).ready(function() {
-
-    // Set initial stress to an empty string for all real spans
-    var realSpans = $('span[real]');
-    realSpans.attr('data-stress', '');
-
-    var poemHeight = $('#poem').height();
-    var rhymeHeight = poemHeight + 50;
-    $('#rhymebar').height(rhymeHeight + 'px');
-    $('#rhyme').height(rhymeHeight + 'px');
-
-    var titleHeight = $('#poemtitle').height();
-    var spacerHeight = titleHeight + 44;
-    $('#rhymespacer').height(spacerHeight + 'px');
-
-    // Set initial width of shadowsyllables
-    setTimeout(function() {
-        var shadowSyllables = $('.prosody-shadowsyllable');
-        shadowSyllables.each(function(i) {
-            var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
-            var correspondingRealSyllableWidth = correspondingRealSyllable.innerWidth();
-            shadowSyllables[i].style.width = correspondingRealSyllableWidth + 'px';
-        });
-    }, 500);
-
-    // Click handlers for toggles
-    $('#togglestress').click(function() {
-        togglestress(this);
-    });
-    $('#togglefeet').click(function() {
-        togglefeet(this);
-    });
-    $('#togglecaesura').click(function() {
-        togglecaesura(this);
-    });
-    $('#togglediscrepancies').click(function() {
-        toggledifferences(this);
-    });
-
-    // Hide the syncopation checkbox
-    $('#syncopation').hide();
-
-    // initialize watch events to toggle the rhymebar
-    $('#rhymebar').on('click', function() {
-        $('#rhyme').toggle();
-    });
-    $('#rhymeflag').on('click', function() {
-        $('#rhyme').toggle();
-    });
-
-    // watch for rhymeform submission and set scheme and answer
-    $('#rhymeform').on('submit', function(event) {
-        var scheme = $('#rhymeform').attr('name').replace(/\s/g, "");
-        var ans = "";
-
-        var total = $('#rhymeform :input[type=text]');
-        $.each(total, function(index, object) {
-            ans += object.value;
-        });
-        checkrhyme(scheme, ans);
-        event.preventDefault();
-    });
-
-    /* Populate the line state array with base correction states */
-    $('.prosody-line').each(function(index) {
-        lineStates[index] = {
-            rhyme: false,
-            meter: false,
-            feet: false,
-        };
-    });
-
-});
-
 var setLineFeatureState = function(lineNumber, feature, state) {
     if (lineStates && lineStates[lineNumber - 1]) {
         lineStates[lineNumber - 1][feature] = state;
@@ -410,3 +324,96 @@ function decodeEntities(encodedString) {
     textArea.innerHTML = encodedString;
     return textArea.value;
 }
+
+if (!String.prototype.endsWith) {
+    String.prototype.endsWith = function(searchString, position) {
+        var subjectString = this.toString();
+        if (position === undefined || position > subjectString.length) {
+            position = subjectString.length;
+        }
+        position -= searchString.length;
+        var lastIndex = subjectString.indexOf(searchString, position);
+        return lastIndex !== -1 && lastIndex === position;
+    };
+}
+
+$(document).ready(function() {
+
+    // Set initial stress to an empty string for all real spans
+    var realSpans = $('span[real]');
+    realSpans.attr('data-stress', '');
+
+    var poemHeight = $('#poem').height();
+    var rhymeHeight = poemHeight + 50;
+    $('#rhymebar').height(rhymeHeight + 'px');
+    $('#rhyme').height(rhymeHeight + 'px');
+
+    var titleHeight = $('#poemtitle').height();
+    var spacerHeight = titleHeight + 44;
+    $('#rhymespacer').height(spacerHeight + 'px');
+
+    // Set initial width of shadowsyllables
+    setTimeout(function() {
+        var shadowSyllables = $('.prosody-shadowsyllable');
+        shadowSyllables.each(function(i) {
+            var correspondingRealSyllable = $('#prosody-real-' + shadowSyllables[i].id.substring(15));
+            var correspondingRealSyllableWidth = correspondingRealSyllable.innerWidth();
+            shadowSyllables[i].style.width = correspondingRealSyllableWidth + 'px';
+        });
+    }, 500);
+
+    // Click handlers for toggles
+    $('#togglestress').click(function() {
+        togglestress(this);
+    });
+    $('#togglefeet').click(function() {
+        togglefeet(this);
+    });
+    $('#togglecaesura').click(function() {
+        togglecaesura(this);
+    });
+    $('#togglediscrepancies').click(function() {
+        toggledifferences(this);
+    });
+
+    // Hide the syncopation checkbox
+    $('#syncopation').hide();
+
+    // Hide the Rhyme
+    $('#rhyme').prev().hide();
+
+    // initialize watch events to toggle the rhymebar
+    $('#rhymebar').on('click', function() {
+        $('#rhyme').toggle();
+    });
+    $('#rhymeflag').on('click', function() {
+        $('#rhyme').toggle();
+    });
+
+    // watch for rhymeform submission and set scheme and answer
+    $('#rhymeform').on('submit', function(event) {
+        var scheme = $('#rhymeform').attr('name').replace(/\s/g, "");
+        var ans = "";
+
+        var total = $('#rhymeform :input[type=text]');
+        $.each(total, function(index, object) {
+            ans += object.value;
+        });
+        checkrhyme(scheme, ans);
+        event.preventDefault();
+    });
+
+    // Dialog box for the meter
+    $('#meter-select').dialog({ autoOpen: false });
+
+    /* Populate the line state array with base correction states */
+    $('.prosody-line').each(function(index) {
+        lineStates[index] = {
+            rhyme: false,
+            meter: false,
+            feet: false,
+        };
+    });
+
+});
+

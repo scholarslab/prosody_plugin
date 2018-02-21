@@ -1,12 +1,59 @@
-div.prosody-shadowline {
+/*div.prosody-shadowline {
   display: table-row;
   height: 18px;
+}*/
+
+.prosody-line {
+  display: grid;
+  grid-template-columns: 20px 550px 80px;
+  grid-template-rows: 20px 20px;
 }
+
+.prosody-line.indent {
+  display: grid;
+  grid-template-columns: 30px 540px 80px;
+  grid-template-rows: 20px 20px;
+}
+
+.wipe-stress {
+  cursor: pointer;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: start;
+}
+
+.prosody-shadowline {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.TEI-l {
+  align-self: end;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.buttons {
+  justify-self: end;
+  align-self: end;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+
 span:hover {
   background: #444;
 }
 span.prosody-shadowsyllable {
-  display: inline-block;
+  display: table-cell;
   empty-cells: show;
   text-align: center;
   font-size: 13px;
@@ -81,10 +128,10 @@ p.prosody-note-show {
 #poem .button button {
   width: 18px;
 }
-.buttons {
+/*.buttons {
   float: right;
   margin-top: -1em;
-}
+}*/
 button {
   background: none;
   border: none;
@@ -225,9 +272,12 @@ small.date {
 #rhymeform p:first-child {
   height: inherit;
 }
-.indent {
+/*.indent {
   padding-left: 1em;
-}
+}*/
 .indent2 {
   padding-left: 2em;
 }
+
+
+

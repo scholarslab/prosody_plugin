@@ -8,6 +8,7 @@ var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
 var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/incorrect.png";
 var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
+var wipeStressUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/wipe-stress.png";
 // This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
 var STRESS_WIDTH = 1;
 
@@ -83,6 +84,7 @@ function checkmeter(lineNumber, lineGroupIndex) {
 }
 
 function switchstress(shadowSyllable) {
+    console.trace();
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
 
@@ -314,7 +316,7 @@ function marker(real) {
 function slackmarker(real) {
     return addMarker(real, "\u222A");
 }
-
+//use when you're wiping everything
 function placeholder(real) {
     return addMarker(real, " ");
 }
@@ -323,6 +325,12 @@ function decodeEntities(encodedString) {
     var textArea = document.createElement('textarea');
     textArea.innerHTML = encodedString;
     return textArea.value;
+}
+
+function wipeStress() {
+    console.log('you');
+    //for syllable in lineNumber:
+    //turn syllable to "placeholder" or "blank"
 }
 
 if (!String.prototype.endsWith) {
@@ -338,6 +346,8 @@ if (!String.prototype.endsWith) {
 }
 
 $(document).ready(function() {
+    $(".prosody-line").append("<div class='wipe-stress'><img src=" + wipeStressUrl + "></div>");
+
 
     // Set initial stress to an empty string for all real spans
     var realSpans = $('span[real]');
@@ -375,6 +385,24 @@ $(document).ready(function() {
     $('#togglediscrepancies').click(function() {
         toggledifferences(this);
     });
+
+/*    $('.wipe-stress').click(function() {
+        var shadowSyllables = $('.prosody-shadowsyllable');
+        shadowSyllables.each(function(i) {
+            var shadowSyllable = shadowSyllables[i];
+            console.log(i);
+            $('#' + shadowSyllable.id).empty();
+        })
+    });*/
+    //we really need to get into the index.html (the thing that's calling all the functions above)
+    //and that requires us to get the thing that makes the index.html for any given page
+    //how do we get that?
+    //we need to have 'wipe-stress-1' as an ID; look at line 88 - its substring(15) which for prosody-shadow-2-1-1-1 takes everything after "w-"
+    //ghh
+    $('.wipe-stress').click(function() {
+        wipeStress();
+        console.log('hi');
+    })
 
     // Hide the syncopation checkbox
     $('#syncopation').hide();

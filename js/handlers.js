@@ -84,16 +84,17 @@ function checkmeter(lineNumber, lineGroupIndex) {
 }
 
 function switchstress(shadowSyllable) {
-    console.trace();
     var realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
     var stress = realSyllable.attr('data-stress');
 
     if (stress === '-' || stress === '') {
+        console.log('coming from blank');
         $('#' + shadowSyllable.id).fadeIn();
         $('#' + shadowSyllable.id).empty();
         $('#' + shadowSyllable.id).append(marker(realSyllable));
         realSyllable.attr('data-stress', '+');
     } else if (stress === "+") {
+        console.log('coming from stress');
         $('#' + shadowSyllable.id).fadeOut();
         setTimeout(function() {
             $('#' + shadowSyllable.id).empty();
@@ -102,6 +103,7 @@ function switchstress(shadowSyllable) {
         }, 150);
         $('#' + shadowSyllable.id).fadeIn();
     } else {
+        console.log('coming from unstress');
         $('#' + shadowSyllable.id).fadeOut();
         setTimeout(function() {
             $('#' + shadowSyllable.id).empty();
@@ -119,6 +121,36 @@ function switchstress(shadowSyllable) {
     }
 
     $('#checkstress' + shadowLineNumber + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
+}
+
+function wipeStress(parentNode) {
+    /*console.log(parentNode.firstChild.getAttributeNode("class").value);*/
+/*    console.log(parentNode.firstChild.id);*/
+    var syllableNodes = parentNode.firstChild.getElementsByClassName('prosody-shadowsyllable'); //some of the child nodes are caesuras or texts
+    var syllableNodesLength = syllableNodes.length;
+
+    //iterate through every node and blank it (code copied from "else" branch of switchstress)
+    for (var i = 0; i < syllableNodesLength; i++) {
+        let shadowSyllable = syllableNodes[i];
+        let realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
+        let stress = realSyllable.attr('data-stress');
+        $('#' + shadowSyllable.id).fadeOut();
+        setTimeout(function() {
+            $('#' + shadowSyllable.id).empty();
+            $('#' + shadowSyllable.id).append(placeholder(realSyllable));
+            realSyllable.attr('data-stress', '-');
+        }, 150);
+        $('#' + shadowSyllable.id).fadeIn();
+
+        //not sure what the below code does, but put it in to cover my bases
+        var digits = /\d+/;
+        var sub = digits.exec(shadowSyllable.id);
+        var shadowLineNumber = '';
+        if (sub !== null) {
+            shadowLineNumber = sub[0];
+        }
+        $('#checkstress' + shadowLineNumber + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
+    }
 }
 
 function checkstress(lineNumber) {
@@ -327,12 +359,6 @@ function decodeEntities(encodedString) {
     return textArea.value;
 }
 
-function wipeStress() {
-    console.log('you');
-    //for syllable in lineNumber:
-    //turn syllable to "placeholder" or "blank"
-}
-
 if (!String.prototype.endsWith) {
     String.prototype.endsWith = function(searchString, position) {
         var subjectString = this.toString();
@@ -398,10 +424,9 @@ $(document).ready(function() {
     //and that requires us to get the thing that makes the index.html for any given page
     //how do we get that?
     //we need to have 'wipe-stress-1' as an ID; look at line 88 - its substring(15) which for prosody-shadow-2-1-1-1 takes everything after "w-"
-    //ghh
     $('.wipe-stress').click(function() {
-        wipeStress();
-        console.log('hi');
+        var parentOfSelected = this.parentNode;
+        wipeStress(parentOfSelected);
     })
 
     // Hide the syncopation checkbox

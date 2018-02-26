@@ -88,13 +88,11 @@ function switchstress(shadowSyllable) {
     var stress = realSyllable.attr('data-stress');
 
     if (stress === '-' || stress === '') {
-        console.log('coming from blank');
         $('#' + shadowSyllable.id).fadeIn();
         $('#' + shadowSyllable.id).empty();
         $('#' + shadowSyllable.id).append(marker(realSyllable));
         realSyllable.attr('data-stress', '+');
     } else if (stress === "+") {
-        console.log('coming from stress');
         $('#' + shadowSyllable.id).fadeOut();
         setTimeout(function() {
             $('#' + shadowSyllable.id).empty();
@@ -103,7 +101,6 @@ function switchstress(shadowSyllable) {
         }, 150);
         $('#' + shadowSyllable.id).fadeIn();
     } else {
-        console.log('coming from unstress');
         $('#' + shadowSyllable.id).fadeOut();
         setTimeout(function() {
             $('#' + shadowSyllable.id).empty();
@@ -123,13 +120,11 @@ function switchstress(shadowSyllable) {
     $('#checkstress' + shadowLineNumber + ' img').attr('src', siteUrl + '/wp-content/plugins/prosody_plugin/images/stress-default.png');
 }
 
-function wipeStress(parentNode) {
-    /*console.log(parentNode.firstChild.getAttributeNode("class").value);*/
-/*    console.log(parentNode.firstChild.id);*/
-    var syllableNodes = parentNode.firstChild.getElementsByClassName('prosody-shadowsyllable'); //some of the child nodes are caesuras or texts
+function wipeStress(shadowLineElement) {
+    var syllableNodes = shadowLineElement.getElementsByClassName('prosody-shadowsyllable'); //some of the child nodes are caesuras or texts
     var syllableNodesLength = syllableNodes.length;
 
-    //iterate through every node and blank it (code copied from "else" branch of switchstress)
+    //iterate through every node and blank it (code mostly copied from "else" branch of switchstress)
     for (var i = 0; i < syllableNodesLength; i++) {
         let shadowSyllable = syllableNodes[i];
         let realSyllable = $('#prosody-real-' + shadowSyllable.id.substring(15));
@@ -425,8 +420,8 @@ $(document).ready(function() {
     //how do we get that?
     //we need to have 'wipe-stress-1' as an ID; look at line 88 - its substring(15) which for prosody-shadow-2-1-1-1 takes everything after "w-"
     $('.wipe-stress').click(function() {
-        var parentOfSelected = this.parentNode;
-        wipeStress(parentOfSelected);
+        var shadowLineElement = this.parentNode.firstChild;
+        wipeStress(shadowLineElement);
     })
 
     // Hide the syncopation checkbox

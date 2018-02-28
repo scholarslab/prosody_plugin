@@ -343,7 +343,7 @@ function marker(real) {
 function slackmarker(real) {
     return addMarker(real, "\u222A");
 }
-//use when you're wiping everything
+
 function placeholder(real) {
     return addMarker(real, " ");
 }
@@ -407,18 +407,7 @@ $(document).ready(function() {
         toggledifferences(this);
     });
 
-/*    $('.wipe-stress').click(function() {
-        var shadowSyllables = $('.prosody-shadowsyllable');
-        shadowSyllables.each(function(i) {
-            var shadowSyllable = shadowSyllables[i];
-            console.log(i);
-            $('#' + shadowSyllable.id).empty();
-        })
-    });*/
-    //we really need to get into the index.html (the thing that's calling all the functions above)
-    //and that requires us to get the thing that makes the index.html for any given page
-    //how do we get that?
-    //we need to have 'wipe-stress-1' as an ID; look at line 88 - its substring(15) which for prosody-shadow-2-1-1-1 takes everything after "w-"
+    //wipes a line of all of its stress markings
     $('.wipe-stress').click(function() {
         var shadowLineElement = this.parentNode.firstChild;
         wipeStress(shadowLineElement);

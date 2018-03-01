@@ -8,7 +8,7 @@ var siteUrl = WPURLS.siteurl;
 var correctAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/correct.png";
 var incorrectAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/incorrect.png";
 var expectedAnswerUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/expected.png";
-var wipeStressUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/broom.png";
+var wipeStressUrl = siteUrl + "/wp-content/plugins/prosody_plugin/images/broom_small.png";
 // This is a hack. We're using it to shave off a pixel to get the shadowsyllables to correctly sit on top of the real syllables.
 var STRESS_WIDTH = 1;
 

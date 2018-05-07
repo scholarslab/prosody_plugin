@@ -1,3 +1,5 @@
+The project is not actively maintained or developed by Scholars' Lab, but anyone should feel free to fork the project and work on it. Pull requests are accepted.
+
 ### Dependencies
 
 - php: Requires XSL to be activated. Information can be found at [the PHP:XSL Manual](http://php.net/manual/en/book.xsl.php)

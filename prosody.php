@@ -4,7 +4,7 @@
  * Plugin Name: Prosody
  * Plugin URI: https://github.com/scholarslab/prosody_plugin
  * Description: Provides functionality for For Better for Verse
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Scholars' Lab, University of Virginia
  * Author URI: http://scholarslab.org
  * License: http://www.apache.org/licenses/LICENSE-2.0.html

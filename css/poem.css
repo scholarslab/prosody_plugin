@@ -72,7 +72,6 @@ span.prosody-marker {
 span.prosody-footmarker {
   color: #deb887;
   font-weight: bold;
-  vertical-align: bottom;
   width: 1ex;
 }
 span.prosody-placeholder {

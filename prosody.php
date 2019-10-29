@@ -677,12 +677,18 @@ if (class_exists('Seravo_Custom_Bulk_Action')) {
 
   $bulk_action->init();
 } else {
-  function bulk_action_dependency_notice() {
-      ?>
-      <div class="error notice">
-          <p><?php _e( 'This plugin requires the <a href="https://wordpress.org/plugins/custom-bulk-actions/" target="_blank"> Seravo Custom Bulk Action</a> plugin to function properly.', 'prosody_textdomain' ); ?></p>
-      </div>
-      <?php
-  }
-  add_action( 'admin_notices', 'bulk_action_dependency_notice' );
+    // Makes sure the plugin is defined before trying to use it
+    if ( ! function_exists('is_plugin_inactive') ) {
+        require_once( ABSPATH . '/wp-admin/includes/plugin.php'  );
+    }
+    if ( is_plugin_inactive( 'wp-custom-bulk-actions/custom-bulk-actions.php'  )  ) {
+        function bulk_action_dependency_notice() {
+            ?>
+            <div class="error notice">
+                <p><?php _e( 'This plugin requires the <a href="https://wordpress.org/plugins/custom-bulk-actions/" target="_blank"> Seravo Custom Bulk Action</a> plugin to function properly.', 'prosody_textdomain' ); ?></p>
+            </div>
+            <?php
+        }
+        add_action( 'admin_notices', 'bulk_action_dependency_notice' );
+    } 
 }

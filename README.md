@@ -3,7 +3,6 @@ The project is not actively maintained or developed by Scholars' Lab, but anyone
 ### Dependencies
 
 - php: Requires XSL to be activated. Information can be found at [the PHP:XSL Manual](http://php.net/manual/en/book.xsl.php)
-- npm: gulp, gulp-stylus, autoprefixer-stylus
 - WP Plugins: Custom Bulk Action plugin by Seravo
 
 ## To Enable XSL:

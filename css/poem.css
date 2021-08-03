@@ -274,7 +274,8 @@ small.date {
 /*.indent {
   padding-left: 1em;
 }*/
-.indent2 {
+.indent2 .TEI-l,
+.indent2 .prosody-shadowline {
   padding-left: 2em;
 }
 

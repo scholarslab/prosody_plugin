@@ -279,5 +279,13 @@ small.date {
   padding-left: 2em;
 }
 
+/* Override some jQuery UI styles that aren't working. */
+.ui-dialog .ui-dialog-titlebar-close {
+  right: inherit !important;
+}
+.ui-button-icon-only .ui-icon {
+  left: 0 !important;
+  margin-left: -12px !important;
+}
 
 
